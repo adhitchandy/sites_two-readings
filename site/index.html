@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Thirty photographs by Allison and Adhit, each edited by both. The same files, read sixty ways.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://two-readings.adhitchandy.com/">
+<meta property="og:title" content="Two Readings — Allison × Adhit">
+<meta property="og:description" content="Thirty photographs by Allison and Adhit, each edited by both. The same files, read sixty ways.">
+<meta property="og:image" content="https://two-readings.adhitchandy.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Two Readings</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+/* Layout: one dark room. Full-bleed split hero, then 30 frames as large pairs in a slow vertical sequence; data lives in mono at the edges. */
+:root{
+  color-scheme:dark;
+  --bg:#050505; --panel:#0d0d0c; --line:#262521; --fg:#efece6; --dim:#96928a;
+  --cr:#ff5f52; --cg:#4fd08a; --cb:#5b8dff; --hb:screen;
+  --display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --gut:clamp(16px,2.2vw,32px);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){color-scheme:light;--bg:#f3f1eb;--panel:#e9e6de;--line:#d6d2c8;--fg:#12110f;--dim:#6a665e;--cr:#e5483b;--cg:#2fa866;--cb:#3f6fe0;--hb:multiply}}
+:root[data-theme=light]{color-scheme:light;--bg:#f3f1eb;--panel:#e9e6de;--line:#d6d2c8;--fg:#12110f;--dim:#6a665e;--cr:#e5483b;--cg:#2fa866;--cb:#3f6fe0;--hb:multiply}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:16px;overflow-x:clip;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.dim{color:var(--dim)}
+
+/* loader */
+#loader{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;animation:lfail 0s 7s forwards}
+#loader .half{position:absolute;top:0;bottom:0;width:50.5%;background:var(--bg);transition:transform 1.3s var(--ease)}
+#loader .half.a{left:0}#loader .half.b{right:0}
+#loader .lc{position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;transition:opacity .4s}
+#loader .cnt{font-family:var(--display);font-weight:500;font-size:clamp(90px,22vw,300px);line-height:.85;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+#loader .ln{overflow:hidden}
+#loader .ln span{display:block;animation:rise 1s var(--ease) both}
+#loader.done .lc{opacity:0}
+#loader.done .half.a{transform:translateX(-101%)}
+#loader.done .half.b{transform:translateX(101%)}
+#loader.gone{visibility:hidden}
+@keyframes lfail{to{visibility:hidden}}
+@keyframes rise{from{transform:translateY(110%)}to{transform:none}}
+
+/* top bar */
+.bar{position:fixed;left:0;right:0;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:env(safe-area-inset-top,0px) var(--gut) 0;min-height:56px;mix-blend-mode:difference;color:#fff;pointer-events:none}
+.bar>*{pointer-events:auto}
+.bar .brand{font-weight:500;font-size:15px}
+.bar button{min-height:44px;padding:0 4px}
+#prog{position:fixed;left:0;top:0;height:2px;width:100%;background:#fff;transform-origin:0 50%;transform:scaleX(0);z-index:21;mix-blend-mode:difference}
+
+/* hero */
+.hero{--fg:#efece6;--dim:#96928a;color:#efece6;background:#050505;position:relative;height:100svh;min-height:520px;overflow:hidden;touch-action:pan-y}
+.hs{position:absolute;inset:0}
+.hs.in{animation:hsin 1.3s var(--ease) both}
+.hs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.hs.in img{animation:hszoom 2s var(--ease) both}
+.hs .top{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+@keyframes hsin{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
+@keyframes hszoom{from{transform:scale(1.14)}to{transform:none}}
+.hero .seam,.hero h1,.hero .foot{z-index:3}
+.hero .foot{align-items:center}
+.hero .foot button{min-height:44px;padding:0 8px;text-transform:uppercase;letter-spacing:.09em}
+.hero .seam{position:absolute;top:0;bottom:0;left:var(--x,50%);width:1px;background:#fff;mix-blend-mode:difference}
+.hero h1{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(64px,9vh,110px);margin:0;font-weight:500;font-size:clamp(46px,10.5vw,188px);line-height:.86;letter-spacing:-.045em;color:#fff;mix-blend-mode:difference;pointer-events:none}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln span{display:block;transform:translateY(110%);transition:transform 1.4s var(--ease)}
+.ready .hero h1 .ln span{transform:none}
+.hero h1 .ln:nth-child(2) span{transition-delay:.1s}
+.hero .foot{position:absolute;left:var(--gut);right:var(--gut);bottom:20px;display:flex;justify-content:space-between;gap:12px;mix-blend-mode:difference;color:#fff}
+
+/* manifesto */
+.mani{padding:clamp(90px,16vw,240px) var(--gut);display:grid;gap:28px}
+.mani p{margin:0;max-width:17ch;font-weight:500;font-size:clamp(34px,6.2vw,104px);line-height:.98;letter-spacing:-.035em;text-wrap:balance;max-width:min(100%,1300px)}
+.mani p span{opacity:.22;transition:opacity .35s}
+.mani p span.on{opacity:1}
+.mani .legend{display:flex;flex-wrap:wrap;gap:8px 28px}
+.mq{overflow:hidden;border-top:1px solid var(--line);padding-block:clamp(18px,3vw,44px)}
+#mq{white-space:nowrap;width:max-content;font-weight:500;font-size:clamp(40px,8vw,130px);letter-spacing:-.04em;line-height:1;color:transparent;-webkit-text-stroke:1px var(--dim);will-change:transform}
+
+/* frames */
+.frames{padding-inline:var(--gut)}
+.fr{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;padding-block:clamp(44px,8vw,130px);border-top:1px solid var(--line)}
+.fr-head{display:flex;flex-direction:column;gap:10px;min-width:0}
+.fr-head .num{font-weight:500;font-size:clamp(64px,10vw,168px);line-height:.8;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.fr-head h2{margin:8px 0 0;font-weight:500;font-size:clamp(22px,2.2vw,34px);letter-spacing:-.02em;line-height:1.05}
+.pair{display:flex;gap:3px;width:100%;position:relative;text-align:left}
+.ph{flex:1 1 0;min-width:0;aspect-ratio:2/3;overflow:hidden;position:relative;background:var(--panel)}
+.fr.l .ph{aspect-ratio:3/2}
+.ph img{position:absolute;left:0;top:-7%;width:100%;height:114%;max-width:none;object-fit:cover;will-change:transform;transition:filter .5s}
+.ph em{position:absolute;left:10px;bottom:10px;font-style:normal;background:var(--bg);padding:6px 9px}
+.js .v0 .ph{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease)}
+.js .v0 .ph+.ph{transition-delay:.12s}
+.js .fr.v0.in .ph{clip-path:inset(0)}
+.pair,.ph,.fr-head .num{will-change:transform}
+.fr.scrub{display:block;height:230svh;padding:0}
+.pin{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding-block:60px 18px}
+.stage{position:relative;overflow:hidden;background:var(--panel);flex:none;display:block;max-width:100%}
+.fr.scrub.p .stage.pair{width:auto;height:min(76svh,calc((100vw - 2*var(--gut))*1.5));aspect-ratio:2/3}
+.fr.scrub.l .stage.pair{height:auto;width:min(100%,calc(76svh*1.5));aspect-ratio:3/2}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.stage .top{clip-path:inset(0 calc(100% - var(--s,100%)) 0 0)}
+.stage .seam{position:absolute;top:0;bottom:0;left:var(--s,100%);width:1px;margin-left:-.5px;background:#fff}
+.stage em{position:absolute;bottom:10px;font-style:normal;background:var(--bg);padding:6px 9px}
+.stage em.a{left:10px}.stage em.b{right:10px}
+.cap2{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 24px;width:100%}
+.cap2 .t{display:flex;align-items:baseline;gap:14px;font-weight:500;font-size:clamp(20px,2vw,30px);letter-spacing:-.02em}
+.cap2 .t b{font-weight:500;font-size:1.6em;letter-spacing:-.04em}
+@media(min-width:900px){
+  .fr.p{grid-template-columns:minmax(200px,1fr) auto;align-items:end}
+  .fr.p.alt{grid-template-columns:auto minmax(200px,1fr)}
+  .fr.p.alt .fr-head{order:2;align-items:flex-end;text-align:right}
+  .fr.p .pair{width:min(70vw,118svh)}
+  .fr.l .fr-head{flex-direction:row;align-items:flex-end;gap:28px}
+  .fr.l .fr-head .who{margin-left:auto;text-align:right}
+}
+
+/* photographer filter */
+.byw{display:flex;flex-wrap:wrap;gap:8px}
+.byw button{min-height:44px;padding:0 14px;border:1px solid var(--line);color:var(--fg);letter-spacing:.09em;text-transform:uppercase;transition:background .25s,color .25s}
+.byw button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.ov-bar .byw button{min-height:36px}
+.pill.on{background:var(--fg);color:var(--bg)}
+#cst #cO{opacity:0;transition:opacity .3s;z-index:2}
+#cmp.orig #cO{opacity:1}
+#cmp.orig .seam,#cmp.orig #knob{opacity:0}
+#cmp.orig .cui.bl,#cmp.orig .cui.br{opacity:0}
+.cui.bc{left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));display:none}
+#cmp.orig .cui.bc{display:block}
+#cOrig[aria-pressed="true"]{text-decoration:underline;text-underline-offset:4px}
+
+/* footer */
+footer{padding:clamp(70px,12vw,180px) var(--gut) 28px;border-top:1px solid var(--line);display:grid;gap:36px}
+footer .big{font-weight:500;font-size:clamp(40px,12.6vw,230px);line-height:.84;letter-spacing:-.05em;margin:0}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px}
+footer .base{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 24px;border-top:1px solid var(--line);padding-top:22px}
+footer .sig{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+footer .sig a{color:var(--fg);padding-block:6px}
+footer .sig a:hover{text-decoration:underline;text-underline-offset:4px}
+.acg{display:flex;align-items:flex-end;gap:6px;--s:clamp(44px,4.6vw,72px)}
+.acg .p{display:block;width:var(--s);height:var(--s)}
+.acg svg{display:block;width:100%;height:100%;overflow:visible;transform-origin:50% 50%}
+.acg .shape{fill:var(--fg)}
+.acg text{fill:var(--bg);font-family:var(--display);font-weight:600;font-size:40px;text-anchor:middle}
+.bar .right{display:flex;align-items:center;gap:18px}
+.bar a{color:inherit;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+
+
+/* cursor */
+#cur{position:fixed;left:0;top:0;z-index:90;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--fg);color:var(--bg);display:none;align-items:center;justify-content:center;pointer-events:none;transform:translate(-200px,-200px) scale(0);}
+@media(hover:hover) and (pointer:fine){#cur{display:flex}.pair,.hero{cursor:none}}
+
+/* overlays */
+.ov{position:fixed;inset:0;z-index:40;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;transform:translateY(101%);transition:transform .9s var(--ease);padding-top:env(safe-area-inset-top,0px)}
+.ov.open{transform:none}
+.ov-bar{position:sticky;top:0;z-index:2;background:var(--bg);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 20px;min-height:56px;padding:0 var(--gut);border-bottom:1px solid var(--line)}
+.ov-bar button{min-height:44px;padding:0 6px}
+.ov-bar .grp{display:flex;gap:18px;align-items:center}
+.pill{border:1px solid var(--fg);padding:0 16px!important;transition:background .25s,color .25s}
+.pill:hover{background:var(--fg);color:var(--bg)}
+
+/* detail */
+.dt{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding:24px var(--gut) 56px}
+/* a frame that is shorter than the window sits in the middle of it, top to bottom */
+@media(min-width:1000px){.dt{min-height:calc(100svh - 57px - env(safe-area-inset-top,0px));align-content:center;padding-block:32px}.dt-figs{align-self:center}}
+.dt-side{display:flex;flex-direction:column;gap:22px;min-width:0}
+.dt-side .num{font-weight:500;font-size:clamp(72px,9vw,150px);line-height:.8;letter-spacing:-.05em}
+.dt-side h2{margin:0;font-weight:500;font-size:clamp(24px,2.4vw,36px);letter-spacing:-.02em}
+dl.exif{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);border-top:1px solid var(--line)}
+dl.exif dt,dl.exif dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line)}
+dl.exif dt{color:var(--dim);padding-right:20px}
+dl.exif dd{text-align:right;text-transform:none;letter-spacing:.02em;font-size:12.5px;overflow-wrap:anywhere}
+.expo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.expo div{background:var(--bg);padding:12px 10px;display:flex;flex-direction:column;gap:6px}
+.expo b{font-family:var(--display);font-weight:500;font-size:clamp(17px,1.45vw,22px);letter-spacing:-.02em;text-transform:none;white-space:nowrap;font-variant-numeric:tabular-nums}
+.dt-figs{display:flex;flex-wrap:wrap;gap:28px 3px;min-width:0}
+.dt-figs figure{margin:0;flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.dt-figs .im{overflow:hidden}
+.dt-figs .im img{display:block;width:100%;height:auto;max-height:74svh;object-fit:contain;transform:scale(1.08);opacity:0;transition:transform 1.4s var(--ease) .25s,opacity .8s .25s}
+.ov.open .dt-figs .im img{transform:none;opacity:1}
+.cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding-inline:2px}
+.note{display:flex;flex-direction:column;gap:8px;padding:0 2px;margin-right:3px}
+.note p{margin:0;font-size:15px;line-height:1.5;max-width:60ch;white-space:pre-wrap;overflow-wrap:anywhere}
+.note .acts{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.note button{min-height:40px;text-decoration:underline;text-underline-offset:4px}
+.note textarea{width:100%;font:15px/1.5 var(--display);color:var(--fg);background:var(--panel);border:1px solid var(--dim);padding:10px 12px;resize:vertical;border-radius:0}
+.hist{border:1px solid var(--line);background:var(--panel);padding:10px 10px 8px;display:flex;flex-direction:column;gap:6px;margin-right:3px}
+.hist canvas{display:block;width:100%;height:96px}
+.hist .ax{display:flex;justify-content:space-between;font-size:9.5px}
+.dt.swap>*{animation:dswap .7s var(--ease) both}
+.dt.swap>.dt-figs{animation-delay:.06s}
+@keyframes dswap{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(min-width:1000px){.dt{grid-template-columns:minmax(240px,300px) minmax(0,1fr);gap:40px}.dt-side{position:sticky;top:80px;align-self:start}}
+
+/* index */
+.ix{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:3px;padding:3px var(--gut) 48px}
+.ix button{position:relative;display:flex;gap:2px;aspect-ratio:4/3;overflow:hidden}
+.ix button.l{flex-direction:column}
+.ix img{flex:1 1 0;min-width:0;min-height:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.ix button:hover img{transform:scale(1.06)}
+.ix span{position:absolute;left:6px;top:6px;background:var(--bg);padding:3px 6px;font-size:10px}
+
+/* compare */
+#cmp{position:fixed;inset:0;z-index:60;background:#000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .5s,visibility 0s .5s;touch-action:none;user-select:none;-webkit-user-select:none}
+#cmp.open{opacity:1;visibility:visible;transition:opacity .5s}
+#cst{position:relative;cursor:ew-resize}
+#cst img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+#cst .top{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+#cst .seam{position:absolute;top:0;bottom:0;left:var(--x,50%);width:1px;margin-left:-.5px;background:#fff}
+#knob{position:absolute;top:50%;left:var(--x,50%);width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:1px solid #fff;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--mono);font-size:12px}
+#cmp.sweep #cst .top,#cmp.sweep .seam,#cmp.sweep #knob{transition:clip-path 1.3s var(--ease),left 1.3s var(--ease)}
+.cui{position:absolute;color:#fff;opacity:0;transition:opacity .5s;text-shadow:0 0 12px rgba(0,0,0,.9)}
+#cmp.ui .cui{opacity:1}
+.cui.tl{left:var(--gut);top:calc(14px + env(safe-area-inset-top,0px))}
+.cui.tr{right:var(--gut);top:calc(4px + env(safe-area-inset-top,0px));display:flex;gap:6px}
+.cui.tr button{min-width:44px;min-height:44px;padding:0 8px}
+.cui.bl{left:var(--gut);bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+.cui.br{right:var(--gut);bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01s!important;animation-duration:.01s!important;transition-delay:0s!important}
+  .ph img{top:0;height:100%}
+  .hs.in,.hs.in img{animation:none}
+}
+</style>
+</head>
+<body>
+<script>window.BAKED_NOTES={};</script>
+
+
+<div id="loader" aria-hidden="true">
+  <div class="half a"></div><div class="half b"></div>
+  <div class="lc">
+    <div class="cnt" id="lcnt">00</div>
+    <div class="ln mono"><span>Allison × Adhit — thirty frames</span></div>
+  </div>
+</div>
+
+<div id="prog"></div>
+<header class="bar">
+  <span class="brand">Allison × Adhit</span>
+  <span class="right"><a class="mono" href="https://adhitchandy.com">acg ↗</a><button class="mono" id="thm" type="button" aria-label="Switch between light and dark">Light</button><button class="mono" id="openIx" type="button">Index</button></span>
+</header>
+
+<main>
+  <section class="hero" id="hero" aria-label="A rotating selection of the thirty frames, each in both edits. Move the pointer to shift the split.">
+    <div class="hs" id="hsA"><img alt=""><img class="top" alt=""></div>
+    <div class="hs" id="hsB"><img alt=""><img class="top" alt=""></div>
+    <div class="seam"></div>
+    <h1><span class="ln"><span>Two readings</span></span><span class="ln"><span>of one frame</span></span></h1>
+    <div class="foot mono"><span>← Allison's edit</span><button type="button" id="heroOpen">Open frame</button><span>Adhit's edit →</span></div>
+  </section>
+
+  <section class="mani">
+    <p id="mani">Fifteen photographs by Allison. Fifteen by Adhit. Each of us edited all thirty. The same files, read sixty ways.</p>
+    <div class="legend mono dim"><span>Left: Allison's edit</span><span>Right: Adhit's edit</span></div>
+    <nav class="byw mono" aria-label="Show photographs by"><button type="button" class="on" data-w="all" aria-pressed="true">All 30</button><button type="button" data-w="allison" aria-pressed="false">Photographs by Allison · 15</button><button type="button" data-w="adhit" aria-pressed="false">Photographs by Adhit · 15</button></nav>
+  </section>
+  <div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+  <section class="frames" id="frames"></section>
+
+  <footer>
+    <p class="big">Allison ×<br>Adhit</p>
+    <div class="row mono dim"><span>Thirty frames, sixty edits</span><span>Sony α6400 · Nikon D7200</span><span>Lightroom · Capture One</span><span>2024 – 2026</span></div>
+    <div class="base">
+      <a class="acg" href="https://adhitchandy.com" aria-label="ACG, back to adhitchandy.com"><span class="p"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="shape" points="50,3 99,97 1,97"/><text x="50" y="88">A</text></svg></span><span class="p"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="shape" cx="50" cy="50" r="48.5"/><text x="50" y="64">C</text></svg></span><span class="p"><svg viewBox="0 0 100 100" aria-hidden="true"><rect class="shape" x="1.5" y="1.5" width="97" height="97"/><text x="50" y="64">G</text></svg></span></a>
+      <div class="sig mono dim"><a href="https://adhitchandy.com">← adhitchandy.com</a><span>© 2026 Allison × Adhit Chandy George. Each photograph remains with its photographer.</span></div>
+    </div>
+</footer>
+</main>
+
+<div id="cur" class="mono" aria-hidden="true">Open</div>
+
+<div class="ov" id="detail" role="dialog" aria-modal="true" aria-label="Frame detail" hidden>
+  <div class="ov-bar mono">
+    <button type="button" data-close>← Close</button>
+    <div class="grp"><button type="button" id="dPrev">Prev</button><span id="dPos" class="dim">01 / 30</span><button type="button" id="dNext">Next</button></div>
+    <div class="grp"><button type="button" class="pill" id="dOrig" aria-pressed="false">Show original</button><button type="button" class="pill" id="dCmp">Compare fullscreen</button></div>
+  </div>
+  <div class="dt" id="dBody"></div>
+</div>
+
+<div class="ov" id="index" role="dialog" aria-modal="true" aria-label="Index of all frames" hidden>
+  <div class="ov-bar mono"><button type="button" data-close>← Close</button><nav class="byw mono" aria-label="Show photographs by"><button type="button" class="on" data-w="all" aria-pressed="true">All 30</button><button type="button" data-w="allison" aria-pressed="false">By Allison · 15</button><button type="button" data-w="adhit" aria-pressed="false">By Adhit · 15</button></nav></div>
+  <div class="ix" id="ixGrid"></div>
+</div>
+
+<div id="cmp" role="dialog" aria-modal="true" aria-label="Fullscreen comparison" hidden>
+  <div id="cst">
+    <img id="cB" alt="">
+    <img id="cA" class="top" alt="">
+    <img id="cO" alt="">
+    <div class="seam"></div>
+    <div id="knob" role="slider" tabindex="0" aria-label="Split position between Allison's and Adhit's edit" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">↔</div>
+  </div>
+  <div class="cui tl mono" id="cPos">01 / 30</div>
+  <div class="cui tr mono"><button type="button" id="cPrev" aria-label="Previous frame">←</button><button type="button" id="cNext" aria-label="Next frame">→</button><button type="button" id="cOrig" aria-pressed="false">Original</button><button type="button" id="cClose">Close</button></div>
+  <div class="cui bc mono">Original, as shot</div>
+  <div class="cui bl mono">Allison</div>
+  <div class="cui br mono">Adhit</div>
+</div>
+
+<script>
+const F = [{"n":"01","t":"Sunset","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":140,"fn":5.6,"ss":0.0025,"iso":100,"dt":"19 Sep 2024, 19:15","hA":["000578642246:?;8778765667889:;>@BDEEFFEDCBA@?>@>ABGLNTUWWZZZRZ;3","01665421136AE::954332345679<BKNMQRTVVSPSTUZZZZ200000000000000002","00002221111100113964433222355789BWZZZJ72000000000000000000000000","002654421125;>977655543445789<=?AHJKMLJHFFIPTXZZZ300000000000011"],"hL":["2?POEA>=<>??>@CIPUXZZZZWWTSRQNNMLJHGEDDDCBCDEEJGEFFHDGMM<0000004","119JGA;:867BMORRXUXZZZYVWSPPIHK;00000000000000000000000010000000","00014554698789=IZZZNSVOF=510000000000000000000000000000000000000","118EC?=;:768:@DJMORVZZZWUTQPOMMHFIJG5000000000000000000100000000"],"hO":["0D8GOC<;>AHNTUUMFD>>>?@AEJORRRUZZZ@00000000000000000000000000002","0?6MH9569>FQZYUPLINUXZZH0000000000000000000000000000000000000001","0461;?64589@QZZZQJ2000000000000000000000000000000000000000000000","0@5FL=97:>EJUWUOIFEGNVZZZY00000000000000000000000000000000000000"]},{"n":"02","t":"Radio tower","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":37,"fn":5.6,"ss":0.003125,"iso":1250,"dt":"15 Jan 2025, 13:33","hA":["00000000000013554322222234G<=;::=CIDB?8435897:=@FQ=55434338ZZZ<1","00000000000013554322222234G<=;::=CIDB?8435897:=@FQ=55434338ZZZ<1","00000000000013554322222234G<=;::=CIDB?8435897:=@FQ=55434338ZZZ<1","00000000000013554322222234G<=;::=CIDB?8435897:=@FQ=55434338ZZZ<1"],"hL":["13354544333333333222233456CN>A@A@>:>HHLGHIHHB=;==9669KZZJ=66777Z","0000013444332222222221222335I=:=<<;;?@IFCBA@:755787;976?ZZ>:677Z","000000001244433322222211222334DA<;<;=>>BIKGEB=7333469:;:9:ZZK@>Z","0000235555443333333322223558WA@CBC@>BGROJJHH@<:9::@=;79ZZSD<8:;Z"],"hO":["00000000000015886445443346FXLID?KZXQNH>;;:==CBBHOZQ767543234444Z","000000000000003897544434358ZIGEBIWZRNE;57:<;;>BBEJRW?6466443334Z","000000000000000026:854433357GQGDCHPZZPD9445579;;9=?CEEHME<96467Z","000000000000003887434433358ZHFFBFTZQMG;679;;;>ABCHQW@6466433345Z"]},{"n":"03","t":"Elbphilharmonie, dusk","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":22,"fn":5.6,"ss":30.0,"iso":100,"dt":"19 Sep 2024, 20:07","hA":["00000000001113379889>?FMMQYZZOZJ<7554433222111111111000000011115","000000011112678==@?@A=97;INTZZZE83111112211111111111000000000012","00000011222455;=@EA??<===;833468977758>KWZZZ22211122111111000001","000000011111235:::=>??<:8=ILPZZZB7311111111111111111000000000111"],"hL":["ZEFKSWUWVQOTZZWPPNJFD?==<:9888887777665444444444444343332222222?","001121246ZZZWPLMMG@=<?DGLQC;755554444433221110100000000000000001","00000001111123454754688:>E@<<;;KZZUPLHDCA@@?@DMGOZ<1000000000001","001111235ZZZSQRLGB@AADDGEA;9655455433333222221111101011000000001"],"hO":["000018CCBADZZYZOGANSH<644433222222111111000000000000000000000001","0000026?EGICHVZZZUNIC>HSPJ96554322211111000000000000000000000001","0000000011111239?AD@=??>=@A=:<>=;<=>84322348?NQUPXZZZ21111110001","00000137ADIHCCBGZZVXZRIDRZW:665332221111100000000000000000000001"]},{"n":"04","t":"Gull","w":"allison","o":"l","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":50,"fn":5.6,"ss":0.0005,"iso":400,"dt":"18 Aug 2025, 11:08","hA":["00000123457899:::;;=?BEHHGGFDBABKVZZYZYXWTNOMPLJD><<;;9742100000","00000123457899:::;;=?BEHHGGFDBABKVZZYZYXWTNOMPLJD><<;;9742100000","00000123457899:::;;=?BEHHGGFDBABKVZZYZYXWTNOMPLJD><<;;9742100000","00000123457899:::;;=?BEHHGGFDBABKVZZYZYXWTNOMPLJD><<;;9742100000"],"hL":["000000021111111225>IMOWZZXQMMNNMHNTMLKKHHHHHMUTJIFC;99999::789;Z","0000000210001112247:;;97666667788:CJLUZZZUUVUNXID<=BLRO@98888::W","000000011001111223589;::76556666778:;<=>=;988@GEMTSPXZZZZH<::;:K","0000000110001112247:;;:8666667;FHJUZZXVWXTPZTPC;;=DOJK@9877789;Z"],"hO":["00333469?FEA<;<?ADEEFBDPZZZXRFF@@ADDGF<755444444444444444444433:","00233568@GGA>>@DEEB>754568:?HXZZXZNIDACHJM;765555555555554432213","001346878=@A=<==>>;8544322233311347:DTZZZLKNV=765555443332211001","00233568>FFA=<>BCDB>954589=DRZZVZOGG@BFGK=6655555554445444433323"]},{"n":"05","t":"Lake paddlers","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":140,"fn":5.6,"ss":0.005,"iso":250,"dt":"28 Aug 2024, 12:29","hA":["211111234579;>BLUZZZVRLGB?<;:98766544332221111111000000000000000","000000001123467;>DMUZZZZSMGC?<;:98776543322111110000000000000000","00000001112234579<?CMZZZYQF=854221110000000000000000000000000000","00000011123458:=AISXZZZSMHC?<;:877654332221111100000000000000000"],"hL":["ZZZSNJIGFEEGKPTWUSNID@;96533221111111000000000000000000000000000","DDIPZZZQKGDBA?@CFGHFGFFDB@?;964321000000000000000000000000000000","86;@HPZZZWG<77:>AA?@BB=96310000000000000000000000000000000000000","DJPZZZSMIGECABEIKKJJJHDB?<86431110000000000000000000000000000000"],"hO":["00000000000001247;@LZZZVJB>;976432211100000000000000000000000000","000000000000012357<BPZZZLB=:865322111000000000000000000000000000","0000000000000012347:=GTZZZG>953110000000000000000000000000000000","000000000000012358;BOZZZLC=:865322111000000000000000000000000000"]},{"n":"06","t":"Statue","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":50,"fn":22,"ss":0.016666666666666666,"iso":16000,"dt":"25 Mar 2025, 17:55","hA":["00000000000001246899::::999899:;<<=>=<974321111000000001LZUZZI10","00000000000000236889898877766667788899898887654221100000011ZZZ:0","0000000000000000269:;;;;98887877889:::;::98876432111114FZPHZZQ10","0000000000000037;>@ABAA@??=<=<=>?ABDDCCAA?=;85321111101112=ZZZ10"],"hL":["9EGJFB>=>??@A@@???>==<;::88766789;;;;<;<CEJHMQUXZZZ8100000000000","7;:=AABA@A??@A@?>?>>===<<<;:887669:AAA@?DHKKRTZZZXB4100000000000","799<>@A??@>>>>>>=====<<<<;;99876555=???@ABGJMTWZZZH4100000000000","7<<ACDB@@??@@@@???>>==<<;;:9876545;>@AAACEIMQVZZZZD3100000000000"],"hO":["0004@MUXVUUUTVZZXRJDA=95321111111111001100000000000000000111111Z","002=GQVWUSTUTRRSVXZZVME>;85322111111111000001000000000001111111Z","0003@NYZYVUUTQRUWYZYULE>;85322111111111000000000000000000111112Z","0007FPWYVTUVTRRUXZZXOE?;753211111111111100100000000000000111111Z"]},{"n":"07","t":"Night road","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":34,"fn":7.1,"ss":35.0,"iso":100,"dt":"4 Sep 2024, 22:49","hA":["00WZZZLC>===;:876665689;=@@A??@ABBAA@@?>=;:98877766654459B:52100","00ZZZB<9766655567899<?@DDB?=<;;;;::87777766655444443333339442100","03ZZZW?855556679::;>@A@??>=<=<<<;:;9876655544433333333232:575312","00ZZZO@;865555444567888:>AAA@=;::9998777766654444433332228342000"],"hL":["ZZWZPKGHFFLQUWVUSPQOMMNPPPNMJIGECCBA@>=<<;;:99::887889<A@<86I810","ZZSIEHIKJMSZZWTPKJFEFDA@??>>=<<<:987766554455566533232233334D600","ZZTGLTRSTYZXUTSRRRPJEDCEB>=<;;:98877767776655554444444445557L600","ZZZQJDEEGKLMPTSTZYXSNIJIFCBC@?===<:9887655565555643233233334E700"],"hO":["000000003HQPLIFDEBA@=;:98777787787777766665566788:<@DHIHKQUXZXZZ","00000007ZZUOKHHFC;:98866655555555444444669::=?@CDDDDDCABDFGEHIIZ","0000000009ZZXURRJFC?:7665433344445555579::;=??A@@?=>@BACDEFEDDFZ","00000000CZZUPLJIGEA><:9988866666665656566678;<<=?FKTUPIIIKONPPQZ"]},{"n":"08","t":"Sheep","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":50,"fn":5.6,"ss":0.0015625,"iso":320,"dt":"24 Aug 2025, 14:12","hA":["P643333334557:=BGKOTVXYXVUTRTUVYZZZYXVSPNMMNPRPNKHDCBC?:88775446","0000000123469=BHNSWZZZZWTQOPSUVVVTPNLJKJJJIGDA?;:9::;:7544332211","012368>DJQTXXWVYZZZYUQLIGFFEDB@?<::99999::9:9::;7778674222211112","000000012347:>CHNTZZZWTQMLMOQTUTSOMKHHHHHGGFCA>;:99:997654432211"],"hL":["Z==>>@ACEEFHIJKKNMNNNOOPRTUWXYZZYXXURPNNMKKLLNLLLJIGEB;:;:977401","000112234579;>ACGLRZZZYXXTUUVWXYXWWVSPOMJIJLKKJHF?=8775443210001","000000001111223345679;>@CGJNRVZZZVQNJHEDDBB?<:977543221111000000","0011234689<>ACJVWSQRRRQRSSTVWZYZZZWUSPNLKJJKLKKHGC@;887554321001"],"hO":["C75433322233568<@EJPTWXXVUTUXZZZXRLHEGFGGGFB?;864443333333332239","000000012357;@JUXZZZWTQOMOSXZULGFHIF@<98875633333222221111111112","000147<CJPUVVTTXZZZRLJHEA=;;;:7776655544433222221111111000000001","00000011235;CHJLQVZZXURQPSWZZSLGFFHHE?;9976643333333222222111112"]},{"n":"09","t":"Alpine ridge","w":"adhit","o":"l","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":38,"fn":4.2,"ss":0.0005,"iso":250,"dt":"30 Aug 2024, 12:14","hA":["0000000001113:BKZZZOHB>=;:99::;<==<:8888888765455567643333431100","00000000011124:FNZZZOHDB><;::;;<>?@@=<;:99865433322112246:;85210","00000000000112235:FRZZZSLGCBAA?>>=>ADFHFEDB=964332211000000035=U","000000000111239EMZZZRIDB?=;::;;<>?@@><;:9987543332212345::564210"],"hL":["101236;=AFMVZZZUPHEAA?=<<====>>=;:;:;;;;:::987765432333211110000","100111248>ACIPZZZVNJHECA>??ABBA@?=;;:;99987777655565554431111000","1000011112348=BGJQZZZXVPMJHIGDEFGIKOOLD?<98654322111279;=>;42100","00011125:>@DIRZZZUMIGDB?>>?@@?@?><;;;;;::98876655655333321111000"],"hO":["00000000001113;DGNZZZXLIFDCA@?@@BCDA=;99999998776677:87644555311","000000000001124<FIPZZZRJHGEC@?@@BDED@=;:999987754443333689::7521","000000000000011235;DLWZZZTQMIHGEDCDEIMLHGDA>;:865443332110003BT<","000000000001114:EIOZZZULIGEDA?@@BDEEA><;:9:998765443345898:77521"]},{"n":"10","t":"Town hall","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":22,"fn":25,"ss":0.0015625,"iso":25600,"dt":"7 Jul 2025, 19:37","hA":["0002477;@EKGDCCCBA??>=;:::9866554444442111111101012;ZXYZZGACFIDX","0024:;=CJIDCBB@>>=;:9887676666544211110000000002@ZZZYGACFE>85588","016:<<ACB@??=;;:98766554454311100000000000000001116ZZZPC8422211;","00138:;@GIDCAA@?==<;:98877765444432111000000000028WZZZJBDFE>9689"],"hL":["0026;=DKNMJIHIJJLMMMNLKPXZZZUQPPOOJHD@><;;:988;=?@AA?ADFA96<1000","00248?EGGEDDDCCBAAENZZZZWTQIB><:87543322221111111111124300000000","000136:=ABBCBAA@@?>>>=@OZZZPKFA=:7543222111111111111111320000000","00148>EJJIGGGGGGFFFEITZZZUUSPMHDCA?><<;:754333322222222270000000"],"hO":["00018ESZZWSNIEA>;97653211100000000000111248>BCB@@?@@?>=<;9878;CZ","01;JZZVROJFB@>=<:842100000000000000001125<EHFDACEAB?<987667779=Z","004GZZZPIC@=;:8532110000000000000000011236=FHGHHGC>:99998877555L","001<LZZTQLHC@>=:87521100000000000000011137?EFCA?BB@@>;8766789;BZ"]},{"n":"11","t":"Traffic light","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":140,"fn":5.6,"ss":0.0004,"iso":640,"dt":"2 Feb 2026, 18:12","hA":["01ZZVMOLOWXZEBA@?=<=;766655544444444444555667678877765556676543G","08ZZH@:47;FKRZD=?BBB>;665654444444444556555556767765556675323221","01OZZG:6311325:?KTZNCOROG<88887878777788778998:9;:32100000000000","02ZZMB:59=HKSZC=@AA?=;666654444444444456556656677655556676433310"],"hL":["08RZZVUQMKJIHJJGFIKJIGBB@?@@@>?=<>?=<<;::9976676678888999;<>@DGZ","027HQSQSMKLKJKSRQZYZZMGLNMNOOJHB@=<=<<;;<=>>>??ABCCAA@?;86643334","00025=ADDEFDDA><974227;<@EKPUZZZXXUZRF@>==><;;;;:;;9951110000000","018NWZVXUQPQPQTPQZWVZZRMMMNKKLMMIGC@>=<<><>=>?@BCEFJNMLKHA:96450"],"hO":["0ZZJCTZV@?><;9:7544444333333333333334444444454443433434443223552","7ZZ?4;HRZK>@BA=<665544443334333444444444445555544445554322211000","0PZP:2239<EPZZBMQKC:76667766666666677676787887842100000000000000","0ZZA49ENZH=>?>;;654443333333333333333443444455443444454322210000"]},{"n":"12","t":"Glass dome","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":24,"fn":10,"ss":0.00025,"iso":800,"dt":"17 Mar 2025, 10:16","hA":["00036847<ACNZZTJMQTH>:8?HZSMOZZNNNNKNVWTOKIFDB@@?<:9877654322220","00036847<ACNZZTJMQTH>:8?HZSMOZZNNNNKNVWTOKIFDB@@?<:9877654322220","00036847<ACNZZTJMQTH>:8?HZSMOZZNNNNKNVWTOKIFDB@@?<:9877654322220","00036847<ACNZZTJMQTH>:8?HZSMOZZNNNNKNVWTOKIFDB@@?<:9877654322220"],"hL":["ZZRQQNKKIIJGECA@>>>>??ACB@@A@A?=====>=<;;:887887777655545555667Z","123477644557<?CAA?@ACB???A>@@ACBAACCDHMLLJJKLMWZZSGB>:988877779Z","01111233322112222333445788788:9:9<;<<<<98766:><=?@ABDFFKLKNXZZ<Z","2347;;987;BEFHIIKJKOYWVWSNNLKMQMNLMMOPQSZZZXZPKJEE@=<;:;::999:>Z"],"hO":["015<MZZZUMPRNMMJKJGD@=;98876655555544443322222221111111100000003","0015A<CZSPPRQVSTZZTOPMLRMJGC@><:99888776664333322222211111111016","00024<:6<CJRVSOJIKJEBGJUWORZZQOQPQZWRPJFC@?==;;:975444333322212<","0015B=HZRRTUVURXZZQPNLRPKHDA?=;:99878776654333322222221111111115"]},{"n":"13","t":"Dyke path","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":75,"fn":5,"ss":0.001,"iso":100,"dt":"1 Apr 2025, 12:23","hA":["1101133334579=BFJMPQQQOMLKKJHE>979::;<<?BFJOTWZWRVTQVQMQSQYTYZZ2","110112235689;>ADIMPSSRPONKIHHGA;99999:;99:;;;979989<@FLNRQRUZXZZ","21247;AIPWZZYUQOKJF;6433334334678998988888875554432222122233346Z","10001112233468:=>@A@@??==<<;:6434444455445565545678<>@BBACDHPZZZ"],"hL":["011122322334578:=BEILNQTYYYXUSQLGC?;8788888888788:>A?;644234;ZZZ","0000011112233456789:<====<:8643333333444321110000000000113=SZZZ0","369=AFJORROJD?9643333334565565668:86432111111010001110111126ZZZ7","00001111122345689:;=>?>>=<:86433332333334554211100000000113;ZZZ0"],"hO":["00011233468<=?BFLRYYVNC:789=DMQSVZZVQKCGIHKLZZ710000000000000000","00011124579;;<@DIOTUTLA9445689;<>@@DEINJNPNJHFNZZZ00000000000000","00001148>CIKKIB943222112122345667654211111122235:DJMVZZZ80000000","0001113457:=>BFLQXZYPD:544568;<>@CGJMNPPSQNKGNSZZ700000000000000"]},{"n":"14","t":"Ship","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":42,"fn":5.6,"ss":0.0015625,"iso":100,"dt":"1 Dec 2024, 15:39","hA":["0008@EBB<<6CDIQIE?><<::::<?ACGJJLLOSQVWWZZXWXTOLHFDJMKJTZFF?<931","001?IFB:79EJRJH?;:886666787889;<@BELOQWYZZXYURRLKIKNOQMSZJ@:1000","3;R;544;DFF@:533333333343444566789:<>@@AA?>=>>BGUZZXTZHA30000000","001=IGA;77DERKG@;<88776678888:;>ACHMNSWYZZYXVSPJJHILPPMWZH=91000"],"hL":["D<?@>95875444333333333333343448999:;;=>@ABDEHHQNTZZZKK;655300000","44565469:;>;769865544444445557==>>@@@CCDEHIKKOPQZZZMD@9655300000","43456554:9<>><97::87766767789CDDFCDFGHJLNNMRURQZZZVJ?@8736300000","567759;<A<86996554444444455557=<=?>@@BDDFHJKNSQSZZZRHC:755300000"],"hO":["0006DC@@;EHBMD<=>=AA@ABEHNUZZZZSLFECFEDEFCDHHEADMPGDC@>B=657643:","001AHI@<?MRERFAB@@>>>=<>?CFMRVZZZTMFCCBBDEIJJKLIMPMILTZXQMBA957D","009OI=96CPFJNEA;7556677778:<>BGLQTSME<7445689<>@FJPSZZZYWQYWJG;1","000?GGB<>JODQD?@?@??>==>?CHNRWZZWPIDCBBCCHHJILGKOKHIRZTOLCB8476>"]},{"n":"15","t":"Harbour","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":60,"fn":7.1,"ss":20.0,"iso":100,"dt":"14 Sep 2024, 20:19","hA":["00000000279;97655569=@DNQMMJEEFGJKPNQSZZZYXWTUUQJ<22221111110113","00000000000269;;967543333447:=AKRMIIJGIJMMNRXZZZZPKSTSE210011001","000000000000004>=;744334443333333346:<>BKZUQQMPMOQRTVZKIKMYZR000","0000000000148;;986555433458<?DPRKHHHGIKLKMSXZZZXQLQTRG2110011001"],"hL":["J<;<<C@<=>?ADCFEHHHDDCBCCCDA?>>=@<889;=BDIORTTSTWZZZZMA111111115",";44579889:7567:=AFGHHEEDCDB@@><=4369<@HPQRRTZZZ11000000000000000","411111258776554323333457<CDBA@??=<<=><31111124;EPZZZ@00000000000","9548:988:95689;?CDEFGDDBBBCA>?><=6347:=AHPQRRTZZZK11000000000000"],"hO":["0148@D@><CQOJGFECCDC@AAA?DKWXYXZZZF11110000000000000000000000001","00267<;::668<@CCA@@?>>>==;;548=DKPUZZZ20000000000000000000000000","000344;@9864556867:>?@??>>>===;;422239EKPZZZ00000000000000000000","00257?<;:67:ACDCAA@???>=>;948<BKQTZZZK10000000000000000000000000"]},{"n":"16","t":"Ostrich","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":50,"fn":5.6,"ss":0.000625,"iso":1000,"dt":"1 Sep 2025, 08:58","hA":["0000000011223456677777666777889:;=?>>==BBGVZZYKHWHAOI@@=;;===>AZ","00000000000112334455555555666778899887665567:A412342234:GQXPZZZA","111123579::<<:87766679:<<;:9654333323445566:>21111111111112;PZZZ","0000000001112345678877767888899;;<;::987678<H;653347ASXZQZSZOKSD"],"hL":["001238;<;;;:::<><=====>CGIOTSZZZWROKKNOPOZYF@EJIC>>=<<<<=@ABDJNK","0001479;==><<===>===>ABCCBC@?>;999;DHOE9ALWZZXTUPQMSZTGECCCCGIA3","00000126<><;:876555556579<>?>;866679;<311111111847JZZYZZVL@@@@73","0001258:;<;::::;;;:;;<>>?@@?>>@><;:=ELZZZTOIJJHFGBNNHB@?@@A@DGE5"],"hO":["00000127<==<;<<=?ADFIHEAAJZZZPHCJEA>=HF;;:887766666666665554444F","00000015<ACB@@CCFJMNJF?;:?LR<85336=LZZZQIMOMDCNRB?<:99899876766M","0000017FLF@=<=AGIE>96557;>B;11111125753348CWZZRVTLNZB<:887553339","00000026?BC@@@BCEILLJE>;;CRO8444;GZZZPJMPJCCTJA>;:9998888766656I"]},{"n":"17","t":"Steps","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":34,"fn":4.2,"ss":0.0025,"iso":2500,"dt":"5 Jan 2024, 17:00","hA":["00002468:AFFD?<;9677:=?@=KZTRQTSVZZZWUUTUNRL?7310000000000000000","0000137;@EEC@=<98677;?@=<::=MYSRQTWZZZXVQSUQTR>95300000000000000","000000025:EE@A>:89998:;>=;:877778BQTQPTZYZWWSPSRRZI<:75200000000","00000359<CHCA?=99777:=@><::?RXRRRTVZZZXUSSUPVO=85200000000000000"],"hL":["00015:<;;<B@ADEJNPLIIIJIJMPQSXSQSZZZYWWVVTRPOMIIGFD@=<>>:777:?00","00039==<>DBEGLRSNLKJLKORTUYSRVZZZVTTRRPNLKIGECCBA@><::=<8667:?00","000027:;:;@AADGOUQNOPOTWWZUSWZZUQPONMKIGGEDA@A@?><;98:;965669=00","00027;<;<ABBEFLSQLLJIMKPRQUZSQVZZZUTTRQPOMKIFDFDB@><;;=<8667:?00"],"hO":["00018;<BE@>:8@@<9989:<==>>>?>=<:DJOZZZUNI;1000000000000000000000","00018;=AA?<98?>:88889:<;<<<==<;99EHOZZZNJB6000000000000000000000","00005:;@AA?;:?>;988889:;<<<<==<;:;9CLVZZZOG=00000000000000000000","00017:<@A?=98?>:88889:;;<<<==<;99EGOZZZNJB6000000000000000000000"]},{"n":"18","t":"Eagle","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":50,"fn":10,"ss":0.0015625,"iso":20000,"dt":"18 Mar 2025, 11:25","hA":["11001111123468<DZZZEA=:97655544433333333333333332222222222222225","111111235799:::;=DZZZPB<9865444333333333333232222222222222211112",";5457:<?ACBA?>>>BLXZZZC=;:98755544444434333333333222222221111113","11111123579::;;>DTZZZF?<:865544444444333333333323322222222222213"],"hL":["0222368<BOZZZULD@=;976544433333332322222222222222222222222222111","0446:>AABDDFPZZZRSQE>;965444443333333332322222222222221111111101","1:?FGFDDCBCMZZZSSPF?;8775444333333333322222222222222111111111001","03358<?@BDGQZZZVUKB>;9654444343333323332222222222222222111111101"],"hO":["000011347;?FOZZZWLB=97654444333333222222221111111111111111111112","013358;=====<>ESZZZH>9755444433332222222111111111111110000000012","000026;ADEDCCGNZZZZKA<976544443333222222211111111111111110101112","0002236:<<=<<>GZZZE=97544433333222222211111111111111000000000102"]},{"n":"19","t":"Low tide","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":140,"fn":5.6,"ss":0.0015625,"iso":100,"dt":"1 Apr 2025, 09:07","hA":["00000000000000012344558:>AACDDCDB@><:8778:>ELTTUTUZZVZZ300000000","000000000000000111233457:<<>@ABBA@?=;9754222357:>GLNPRSVZZZL0000","0000000000000011111123579::;::;;<=>><<:88653323578;=@DGHJMRSZZZ1","000000000000000111233457:;<>@ABA@?><9864322357:?JMNOPSTZZZ<00000"],"hL":["0000001111222222222223445789::<CGNSUTVVVUYZZWQJGCCCGLQWZXXZI0000","0000000000000000112233465479;<;;;?FGGILNPQQRWXZZWXZTOOMLLR000000","00000000000000001111112469::9865543444569<AEIMUTUWSNJLOZZYZSXZ10","0000000000000112223333454469;<<=>>ENNOQSSUTTVYYZWVZZZVSRQXI00000"],"hO":["0000000000112233334578:<=>??@A@@>====<<<=??GIMQYZZZ2000000000000","0000000000000111222233346899:::;:::;::98898999:<AJQXZZZ000000000","00000000000011111111123445655443444566789::;;:87679<>EGNZZZ60000","0000000000000111122223346789:::::::99887888889;?FLTZZZ0000000000"]},{"n":"20","t":"Angel","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":48,"fn":5.6,"ss":0.01,"iso":1250,"dt":"19 Jan 2025, 11:36","hA":["000000000011445;HKLRQNOVZWUWYYZYZZUSTQKIEDA<85200000000000000000","00000000112259?EDFIRZZZTVXZXVUQPLFBA?>=>>====;644211000000000000","110122358;>BNZZZUMJE?<:87656666767667666667766677664332100100000","00000000112358?EDFJQZZXUUXZXVTPOLFA@?===>==>=;644100000000000000"],"hL":["0000000000001112358<BBGNQZZYVZZXVPNHDB@=?<<;:;985433000000000000","00000000000000122358=BALZZZZVXPNH@<98;==>=<:;9854200000000000000","0000000000000000112458=AJZZZQPKC>;86543445898::89787543200000000","00000000000000122358=BBKXZZZZYVPNE?<9:>=<><<::985431000000000000"],"hO":["000000000000000000000000000012226?EEHILTZZZUMGEB><73210000000000","000000000000000000000000122259>@BGNZVUYZZWPLDA?<;:63211100000000","00000000000000001112357:=@LZZZYRG@;98765555556666665666555555535","000000000000000000000000012246=@BFKTZTXZZZSPHD@=;842111000000000"]},{"n":"21","t":"Birds","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":140,"fn":5.6,"ss":0.001,"iso":100,"dt":"1 Apr 2025, 13:14","hA":["0000000000148=>==>=;::31000001111112234589:;<?BPZZZRYD8755421000","00000000000012477877876652100000000111111112223569=DLZZZ<5421000","00000248;<<;;9520000000000000000000000001111111111236<DGKPZZZ600","0000000000013688878866520000000000011011112233568;@JZZZB64421000"],"hL":["00000000112234556667877655421100000000000111111122234568>@FWZZZJ","0000123567:=@AACDB@><:6322233445689:::;<<<=?ADFEHHGPXZYQVZZNLAC:","0000001234579<>?@AA@?<95223458:>==>>=>BCDEGJZZXSUZKA><:885444840","000000123458:<==>>?>=:973210111222344568999:;;=>AEGKTYZZVWZJE@>7"],"hO":["0000000000012469=AB@?><72000001112223457::;;=?AGEIUWYZZZ:8774100","0000000000012469;=<;;9410000000000011112233467889;<DHVZZZ=753100","00000001469;??>:63100000000000000000000011111223335789;DZZZC6100","000000000001347:=>=<;831000000000011111223467799:<ADNZZVZ9763100"]},{"n":"22","t":"Bridge","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":34,"fn":8,"ss":0.003125,"iso":500,"dt":"2 Feb 2025, 12:57","hA":["1158<?@@?ABCDDEHA=:78899;:966664222223334568:<=@ACDFHJJFZPVXZZ20","101368<>?>==>@@ABBDE@=:889:987666542222222334579:<=@ACFGIIJRZVZZ","001124679;?CDCCACBBCGJHHHGIJLQJID@>>;:::97533444444567:>BFJPTZZZ","011357:<=<;;<=>>??@B=;977788765554322222222345689:<>?ACDHHHZPZZN"],"hL":["ZZQONKFB;86556677899;;==?BDFGKOQRTWZXRNLPRKDA>=>>@ABDEFEFEEHFCLQ","WHIJLLJKHDDDEBB@??A@@@A@@@BDGFIMOOPTXZZRMIJOPJD@?@@ABDDFHIHJKQPZ","@99::=?@@BBAA@??==>>>>>?>>@@??BFHFIJJMPVZZULGFFMJB>>@AABABBCFFJZ","VKOOQNLKHGHEA?>??>>><<<=>>BDFFINQPPVZZYRLJMQOFB??@@ABCEGHHHJLRMZ"],"hO":["0116=FLMKNPNWZF:9;?IIA?84445457:=?ADEFGJHHCFGGE;@DFJKJIMPZZ40000","0113:BHLLGKONUZP=>GJB@<644444569<>@CEDHHJIDDBEFB:>AFINNMKSZZ4100","00126:AFGJHDGMOOTZSMFA@;6444444569=@AEFDFHIIDB@@AAB:;?BGKPRTNPZZ","0114;DJNNINPPXZN==EMFB>754455569<?ADGEIJLKFECGHE:?BGJPPOLUZZ6000"]},{"n":"23","t":"Lakeside trees","w":"adhit","o":"p","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":80,"fn":5.3,"ss":0.0015625,"iso":400,"dt":"31 Jan 2026, 15:40","hA":["0000000011358:<<=>@CGKPUYYZZXUSMIE@=<<<=>>?@CHLGIRZZN20000000000","000000001137:=>@BGLRVYVVSOJFBBADFIGHKGDA>>>>??CFMJDNZZZ700000000","001136=EJOSYZVJA;87655666778889;=>>?EIGDCFCA>=?ADIHABZZZ40000000","000000011248<?@BFKPUYZYXUPLHFCFHJIKMIEA????@ABGKOHJYZZE100000000"],"hL":["00136:=AEGKNSWYZZYTQNLHC?=;;::9:9:999::;:;;<<>>=9999;=ANRZZ<0000","11248<AEHJIHHGHHHHHIHHEEFEDCB@?=<<<<;;::;::;;<<=>@B>;;=AFZZZ1000","Z@<;::976543333333333444444455678777655455555555555555678977:ZZ1","0136:?DJKKIIHHIHIIJJJJIGFDA?><<<;;:::99:::::;;<=>A?<:;<@EZZZ1000"],"hO":["000000001235788788:<@DLRVZZZXRKB=:9999:::;;=@C@BBDGCZM2000000000","000000012479999;=AHOVZZYUOIHIEGGB>;;;:;;;<<=@BEAAHGGZZ:000000000","000000136;BHKMMPTZZSIA=;;::;<>ACGMJGIHC?<<====@ADHB>GHMNZD000000","000000012379999:<?EMSXZZZVNLKGIGC?;;;;;;<<<>@BFBAHGJLZJ100000000"]},{"n":"24","t":"Cyclist","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":50,"fn":25,"ss":0.0005,"iso":16000,"dt":"1 Jun 2025, 08:48","hA":["005<?@?>>===;:::9:;;;;;:::::9::998877778999;<>?ADFGFDEGQZZZOV>34","00149::;;::998877777778777777889999888889:;=>?@@?>>=<:98::7?ZZZ2","ZZOLKJIHFDCB@@>=;;:;;<==>=<<<;<<>@BEGHJJNQVVTRRONJFCBB<53212222Z","0029===<<;;;:99877888988888898::::9888889;<=>@BCBA@?><;;<=BZZZI1"],"hL":["04=BCCCB@?===>?@@AAA@AAA@AAA@?????@@?@?>===>>==<<;?;546@ZZZ40011","018@EGIJIGEEEFJLNOOOPOPNLJKJIHGFCA@@@@><<;:99:;;85<RZZZ879700000","00139=?BCEFFDDEEINTXZZZXUSNLIDB@@@>==BKQWTYZHB@?>985553100000000","016<?ABCB@?>>?ABDDDEDFEEFBCCBBBAA@>=<<<<::98888:857CZZZ657400000"],"hO":["000016>DGFDB@?>>>????>?>>=<;99889::;=?BGMUZZZVQKE@;9998654321113","00026<BHMONMKJGGHHHJKKLJHEEFFFFHIJLPTXZZXQJGFHNZWSUPJE@ADB631102","003HZZXQLIECA@>>=>??@@A@??AEHJKOSYYWPHA<743222111125=FOXYZSRF301","00004=FMQQNKIGFFFGGIHHIIFEEDCBACDFGJMQWZZUQMMOZYRUQIF?>@F9620001"]},{"n":"25","t":"Ridge","w":"adhit","o":"l","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":45,"fn":4.5,"ss":0.0025,"iso":160,"dt":"30 Aug 2024, 07:59","hA":["ZGDHOTTUWZYSNIEB@=<987778888888788777888899;=?@?@CCDEHIKJKILFEKZ","356:AAESZZXYZVPJFEDAA?=;98877888888777778889::=@??ACEFHIJJLMHDJZ","0148=@DIUXZXUVVTQKECBDHJHEA?866688898898899:;<=AADHGJNPQTZYZWL10","38=HKORVVVWZZTMIFEBB@=;98888889988887778899::<@A@@BFEHIKMMMOIGPZ"],"hL":["00:MWZZZRMLKJHDA@?@@?==;;;<<==>>?@BCDEEDDDEDA@@AAA@><;>AD@A00000","001@LQZZZVSPPKFCCBB@><<;;;;<<<<<>?@ABBAABBBB@A@?@A???;>ADG000000","002AHKZZZZUQMIECBCB@=;::9::9::;;<=>?@@@@@@B@A@?B@@@??>?JA0000000","003ENXZZZVPPOJFCCBB@?=<<;;<=====?@ACDCCBCDCCABA@AA@@?=>BCJ000000"],"hO":["0001?ZZZSG?=<:754444544443333333333344556666777889::;<<;<;;B?900","00004EZZZSKB>==;87544445544433333333334445677678899:::;=?CGEQ<00","000007CWZTLIB?=<;<;:8643222233444222223333334445577778:;;=<?FZZ0","00005HZZZTJB?>=;865444455544333333334444556777898::;;;=?ACGCQ=00"]},{"n":"26","t":"Forest light","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":47,"fn":22,"ss":0.003125,"iso":6400,"dt":"29 Mar 2025, 06:53","hA":["00000029ENUZZZVRLFC@>=;99876665444333333333332232222222222222126","000000016>ISWWZZZUGC?=;:9876544444333333333222222222111111111113","0000000017IWZZYZWZWF?;976554444333332222221111111111111100000003","000000017BLSVWZZZLDA><:98766544343333333332222222222211111111113"],"hL":["000009RZZZWRMJGB?>>=<;977665555443333222222222222222333333348:00","0003EPSZZZUOJEB?=>><<<988777654433322222222222222222222222334@10","000<SVXUZZZWKECA?>;9998765443333222222222222122121221212222336=0","0000=PUZZZXQLGC@>?>=<;887766654433323222222222222222222223334@10"],"hO":["008XZZZLC?=:8766543332222222211111111111111111111000000000101115","001AWZZZNC>:8765433222222221111111111111111000000000000000000004","0006SZZZZO@<8654333222222111111111111000000000000000000000000002","001AYZZZG@<98765433222222211111111111111111000000000000000000013"]},{"n":"27","t":"Tidal poles","w":"adhit","o":"l","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":66,"fn":5,"ss":0.001,"iso":100,"dt":"1 Apr 2025, 09:07","hA":["000000000001223579=@DFHIHHFFEEDCB@=;98766799:;<>?BKXSXZZZ2000000","00000000000011111234578;=>?@@@A@@@@?>=<:986544566778:<AHRZZZ8000","000000000001111111122234568:=@DFIJLKJKIHFCACEC?<987788:;>BDJZZZ4","0000000000001111234579;>?ACCBCBBBAA@?><:97655567889:=BIUZZZF0000"],"hL":["322234455679;>ADGHLNORVXZZZZXUQOMJHGFFEDDDDDEDDFEC@0000000000000","0000111211111123455779;=@CFIKKLMPRRUVYZZZZVTSSQPPOLLE00000000000","100000121111111112222323344568:<?BDEEFHIJLMOSVVWYWXZYYVWZZI00000","0001112222222334678:<>AEGILMNNQTTWXZZZXVTRPOMMMMNLJKA00000000000"],"hO":["00000000112234579=@FJMPQRQPOMJHEBABGSWXZZXZXTRH10000000000000000","0000000001111112234578:<?BDFHIJIIHGEB@>=>AHTXYZZZTM0000000000000","00000000011111111112222222334568:=@BEFGGGFCA?==>@GLNZZZN00000000","0000000001111112245579<>BDFHIJJJIGEC@><>@GTXXZZZSO00000000000000"]},{"n":"28","t":"Elevated railway","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":50,"fn":29,"ss":0.0003125,"iso":16000,"dt":"10 Aug 2025, 10:53","hA":["001247CUZOFBA@?@A>>@@@?<:99887778888878;=@BEEOZJTV<<CVZROWTVXRSQ","1245<HSKC?>=<<;:;;:99::;87777667788::==?>;:555435:OJY@OZZZKJJ>40","148DOF@=<;;:::98987677789::988899887754222222234578>IGZZZ<621000","01349GUQEA@>===<;<;:;<=:987777777899;<>?A?<865558PKWF?ZZZWNKME60"],"hL":["027:@HNNHCA??>=>>>=>==>???=<<;::::;@KLCAHMPLABDFGJSUWSJHIIJSZYZZ","0037<BHIE@><<<==<<<;;;<<;;;987777667:@BA?<@BDA<88779:<HUYZNNNOZZ","00001347<@BA@=<;::::;<;;;<;;;<<<<;:>EE@C=:75344448CD@>AMZZLZKJEC","0035:AGJHB@>=<====<<;<<====<:98888878<CFEGIIB=<:998:AKWWZMKPOOZZ"],"hO":["0017TZZYSSTPMHFCA@>=>?>=@GOSWWZWLB;99<CILKFA@CFECA?=<;::::::<=@@","01CZZZONMJKKNMFC><=@DBAACDHEAACGIFNLA;;=@NSVOELF@>=<;;:999776679","005ZZZOKIGFDCEEA<<?CEAAB?;6443355545:@GKQOGGMXYE><::987755432211","004WZZZSTPPQWOGFB>>AFDBCDFJLLJMOJKUK<;<?FXVZLHRIBA?>==;<;;::9997"]},{"n":"29","t":"Evening sky","w":"adhit","o":"l","mk":"Nikon","md":"D7200","lens":"18–140 mm f/3.5–5.6","fl":140,"fn":5.6,"ss":0.0015625,"iso":400,"dt":"2 Feb 2026, 18:03","hA":["100000000000123568:<=?@CDGKNQYXZZZQMLPSPDB<7544444445579;?BCA@>F","000000000000000012456789;=?ABDEGJLQUZYZZUVIDBCC=<>???>=::9951000","000000000000000000000112344456789:;=?ACEHJOUZZZND=:>832000000000","00000000000000012345789:<>@BCEGJLOUZYZZSQUFBBA=::;<>@A@>;<<61000"],"hL":["0000000000037678;?KXYZZTLJE?>=<:8776554443333332223333333344469Z","00000000000000138;?ABEIKMPTZZSRYVZRICA@>>=;:99876665554444443346","00000000000000000000148:=?ADKPRNMMUZOKKLOWZXZOD>@;75433333310000","00000000000000147;??@DGILRZZZTTWPEAA?><:998777776666666654444453"],"hO":["00000029@HMZZZSWJ:6666678989764000000000000000000000000000000000","000000027<CJQYZZZG@999999755410000000000000000000000000000000000","000000000248<CJSZZZZSG?:4100000000000000000000000000000000000000","000000027<CJQZZZXF>888999866410000000000000000000000000000000000"]},{"n":"30","t":"Elbphilharmonie, golden hour","w":"allison","o":"p","mk":"Sony","md":"ILCE-6400 (α6400)","lens":"E PZ 16-50mm F3.5-5.6 OSS","fl":50,"fn":10,"ss":0.002,"iso":800,"dt":"16 Feb 2025, 17:07","hA":["000124:>@DFJLMOSQRRWWTSWWSQVSOTTNKOLHHHFDFIKZZZYZYRPSXUHA@CIPMKQ","0026:;<>ABBABDGPRJC@>?EGDA?BEGGHGDDIGFDB@??@?CEKZZZNKLKA?KN;1011","04:@A??@?<;>DDDB?=<<=;:977>?=>>=;8:<:8;;:;;@CBEHLLIMRZZZ:0000001","00137:;=>ABABCFMPMGA??EDEA>BDHGFIGKGDEA???>??AEPZZZKKLKA>KO@1011"],"hL":["2;ACDBAB@@??>@CCDC@>>IRPZZZUSQKLMLJHFJJPMUVPJB:;;;:<>@AA?;98777P","5BEEA>>;:9::;>==BDE@OUNMJGFEFSWKDEGHHMSZZZHHJI:41111111111111112","<STH>;:88987778;>@EKZZZJIMKKPQUTQOOQVQMZNKC>50000000000000000001","3@DEB@>=<;<>?==>ADECGVOLRLGHJZSMEEGHJKPZZZRDCGID;<21111111111112"],"hO":["16?CDFHJLKJSZZZWNLKLGFIKGFEFD>::799:9755672111100111111010111115","1FNMHEEJZSJHZZXTQOZWJKRSONPPQMH=869AL?11111110100000000000000013","3QZJA><=@OYC><OZNDBFHGHJNPCJPTXZUF?D4000000000000000000000000001","1?KKHFFNYSKIZZXXRTZQHKSPLPRRPME:97;AFB21111111111101100000001111"]}];
+const $ = (s, r = document) => r.querySelector(s);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.add('js');
+const src = (f, who) => 'img/' + f.n + '-' + who + '.jpg';
+const sm = (f, who) => 'img/s/' + f.n + '-' + who + '.webp';
+const pre = u => new Promise(r => { const im = new Image(); im.onload = im.onerror = () => r(u); im.src = u; });
+/* show the small file at once, swap in the large one when it has arrived */
+function fast(img, f, w) { const big = src(f, w); img.dataset.want = big; img.src = sm(f, w); pre(big).then(() => { if (img.dataset.want === big) img.src = big; }); }
+/* largest file that exists: the extra-large one where published, else the standard one */
+const ok = u => new Promise(r => { const im = new Image(); im.onload = () => r(true); im.onerror = () => r(false); im.src = u; });
+const xl = (f, who) => 'img/xl/' + f.n + '-' + who + '.jpg';
+const best = (f, w) => ok(xl(f, w)).then(y => y ? xl(f, w) : pre(src(f, w)));
+function sharp(img, f, w) { const key = f.n + w; img.dataset.want = key; if (!img.dataset.keep) img.src = sm(f, w); best(f, w).then(u => { if (img.dataset.want === key) img.src = u; }); }
+const overlayOpen = () => !!document.querySelector('.ov.open, #cmp.open');
+const who = f => f.w === 'adhit' ? 'Adhit' : 'Allison';
+const shutter = s => s >= 1 ? (Math.round(s * 10) / 10) + ' s' : '1/' + Math.round(1 / s) + ' s';
+const cam = f => f.mk + ' ' + f.md;
+
+/* ---------- loader ---------- */
+(function () {
+  const L = $('#loader'), c = $('#lcnt');
+  const dur = reduce ? 1 : 1700, t0 = performance.now();
+  function done() { L.classList.add('done'); document.documentElement.classList.add('ready'); setTimeout(() => L.classList.add('gone'), 1400); }
+  (function tick(t) {
+    const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+    c.textContent = String(Math.round(e * 30)).padStart(2, '0');
+    p < 1 ? requestAnimationFrame(tick) : setTimeout(done, reduce ? 0 : 250);
+  })(t0);
+})();
+
+/* ---------- hero: split follows pointer, frame changes every 5 s ---------- */
+(function () {
+  const h = $('#hero'), btn = $('#heroOpen'), slides = [$('#hsA'), $('#hsB')];
+  let target = 50, x = 50, last = 0, act = 0, k = 0, busy = false;
+  /* the banner only shows frames shaped like the screen: landscape frames on wide screens, upright ones on tall screens */
+  const isWide = () => innerWidth >= innerHeight;
+  const build = w => { const pool = F.map((f, j) => j).filter(j => (F[j].o === 'l') === w), st = w ? 2 : 7; const o = pool.map((_, j) => pool[(1 + j * st) % pool.length]), first = o.findIndex(j => F[j].n === (w ? '09' : '03')); return first > 0 ? o.slice(first).concat(o.slice(0, first)) : o; };
+  let wide = isWide(), order = build(wide), ready = null;
+  sharp(slides[0].children[0], F[order[0]], 'adhit'); sharp(slides[0].children[1], F[order[0]], 'allison');
+  btn.textContent = F[order[0]].n + ' / 30 · ' + F[order[0]].t;
+  addEventListener('resize', () => { if (isWide() !== wide) { wide = isWide(); order = build(wide); k = -1; ready = null; next(); } });
+  const warm = j => { const f = F[order[j]]; ready = { j, p: Promise.all([best(f, 'adhit'), best(f, 'allison')]) }; };
+  warm(1);
+  h.addEventListener('pointermove', e => { const r = h.getBoundingClientRect(); target = (e.clientX - r.left) / r.width * 100; last = performance.now(); });
+  (function loop(t) {
+    if (!reduce && t - last > 2500) target = 50 + Math.sin(t / 2600) * 22;
+    x += (target - x) * .07; h.style.setProperty('--x', x.toFixed(2) + '%');
+    requestAnimationFrame(loop);
+  })(0);
+  function next() {
+    if (busy || document.hidden || overlayOpen() || h.getBoundingClientRect().bottom < 80) return;
+    busy = true; const nk = (k + 1) % order.length, f = F[order[nk]];
+    if (!ready || ready.j !== nk) warm(nk);
+    /* the full-size files are fetched ahead of time, so the new frame arrives sharp */
+    ready.p.then(u => {
+      const el = slides[1 - act], old = slides[act];
+      el.children[0].dataset.want = el.children[1].dataset.want = '';
+      el.children[0].src = u[0]; el.children[1].src = u[1];
+      el.classList.remove('in'); void el.offsetWidth;
+      old.style.zIndex = 0; el.style.zIndex = 1; el.classList.add('in');
+      act = 1 - act; k = nk; btn.textContent = f.n + ' / 30 · ' + f.t; busy = false;
+      warm((k + 1) % order.length);
+    });
+  }
+  setInterval(next, 5000);
+  btn.addEventListener('click', () => openDetail(order[k]));
+  h.addEventListener('click', e => { if (!e.target.closest('button')) openDetail(order[k]); });
+})();
+
+/* ---------- manifesto words ---------- */
+const mani = $('#mani');
+mani.innerHTML = mani.textContent.trim().split(/\s+/).map(w => '<span>' + w + '</span>').join(' ');
+const words = [...mani.children];
+
+/* ---------- frames: five scroll treatments in rotation ---------- */
+const exif = f => cam(f) + ' · ' + f.fl + ' mm · f/' + f.fn + ' · ' + shutter(f.ss) + ' · ISO ' + f.iso;
+$('#mq').textContent = (F.map(f => f.t).join(' — ') + ' — ').repeat(2);
+$('#frames').innerHTML = F.map((f, i) => {
+  const v = i % 5;
+  if (v === 2) return `
+<article class="fr scrub ${f.o}" data-i="${i}" data-v="2" id="f${f.n}">
+  <div class="pin">
+    <button class="stage pair" type="button" data-open="${i}" aria-label="Open frame ${f.n}, ${f.t}">
+      <img loading="lazy" decoding="async" src="${sm(f, 'adhit')}" alt="${f.t}, Adhit's edit">
+      <img class="top" loading="lazy" decoding="async" src="${sm(f, 'allison')}" alt="${f.t}, Allison's edit">
+      <span class="seam"></span><em class="mono a">Allison</em><em class="mono b">Adhit</em>
+    </button>
+    <div class="cap2"><span class="t"><b>${f.n}</b><span>${f.t}</span></span><span class="mono dim">Keep scrolling to wipe from one edit to the other</span><span class="mono dim">${exif(f)}</span></div>
+  </div>
+</article>`;
+  return `
+<article class="fr v${v} ${f.o} ${i % 4 > 1 ? 'alt' : ''}" data-i="${i}" data-v="${v}" id="f${f.n}">
+  <div class="fr-head">
+    <span class="num">${f.n}</span>
+    <h2>${f.t}</h2>
+    <div class="who mono dim">${exif(f)}</div>
+  </div>
+  <button class="pair" type="button" data-open="${i}" aria-label="Open frame ${f.n}, ${f.t}">
+    <span class="ph"><img loading="lazy" decoding="async" src="${sm(f, 'allison')}" alt="${f.t}, Allison's edit"><em class="mono">Allison</em></span>
+    <span class="ph"><img loading="lazy" decoding="async" src="${sm(f, 'adhit')}" alt="${f.t}, Adhit's edit"><em class="mono">Adhit</em></span>
+  </button>
+</article>`; }).join('');
+const frs = [...document.querySelectorAll('.fr')];
+const parts = frs.map(el => ({ el, v: +el.dataset.v, pair: $('.pair', el), phs: [...el.querySelectorAll('.ph')], imgs: [...el.querySelectorAll('.ph img')], num: $('.num', el) }));
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+  frs.forEach(f => io.observe(f));
+} else frs.forEach(f => f.classList.add('in'));
+/* warm the large files as soon as a pair is touched or hovered */
+document.addEventListener('pointerover', e => { const b = e.target.closest && e.target.closest('[data-open]'); if (b && !b.dataset.warm) { b.dataset.warm = 1; const f = F[+b.dataset.open]; pre(src(f, 'adhit')); pre(src(f, 'allison')); } });
+
+/* ---------- scroll-linked: progress, counter, word fade, per-frame motion ---------- */
+const prog = $('#prog'), mq = $('#mq');
+const cl = (v, a, b) => Math.max(a, Math.min(b, v));
+const ez = t => t * t * (3 - 2 * t);
+let ticking = false;
+function onScroll() {
+  ticking = false;
+  const vh = innerHeight, max = document.documentElement.scrollHeight - vh;
+  prog.style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')';
+  const mr = mani.getBoundingClientRect();
+  const k = cl((vh * .85 - mr.top) / (mr.height + vh * .35), 0, 1);
+  words.forEach((w, i) => w.classList.toggle('on', i < k * words.length + .001));
+  if (!reduce) mq.style.transform = 'translate3d(' + (-(scrollY * .45) % (mq.offsetWidth / 2)).toFixed(1) + 'px,0,0)';
+  for (const p of parts) {
+    const r = p.el.getBoundingClientRect();
+    if (r.bottom < -300 || r.top > vh + 300) continue;
+    if (p.v === 2) { /* pinned: scroll wipes Allison's edit away to reveal Adhit's */
+      const t = cl(-r.top / Math.max(1, r.height - vh), 0, 1);
+      p.pair.style.setProperty('--s', (100 - ez(cl((t - .1) / .8, 0, 1)) * 100).toFixed(2) + '%');
+      continue;
+    }
+    if (reduce) continue;
+    const pr = p.pair.getBoundingClientRect();
+    const d = ((pr.top + pr.height / 2) - vh / 2) / vh;      /* 0 when the pair is centred */
+    const e = ez(cl(d * 1.25, 0, 1));                         /* 1 while entering, 0 once centred */
+    if (p.num) p.num.style.transform = 'translate3d(' + (Math.max(0, d) * 70).toFixed(1) + 'px,0,0)';
+    p.imgs.forEach(im => { im.style.transform = 'translate3d(0,' + (-d * 5.5).toFixed(2) + '%,0)'; });
+    if (p.v === 1) { /* halves slide past each other and line up at centre */
+      p.phs[0].style.transform = 'translate3d(0,' + (d * 13).toFixed(2) + '%,0)';
+      p.phs[1].style.transform = 'translate3d(0,' + (-d * 13).toFixed(2) + '%,0)';
+    } else if (p.v === 3) { /* halves fan in from the sides */
+      p.phs[0].style.transform = 'translate3d(' + (-e * 26).toFixed(2) + '%,0,0) rotate(' + (-e * 7).toFixed(2) + 'deg)';
+      p.phs[1].style.transform = 'translate3d(' + (e * 26).toFixed(2) + '%,0,0) rotate(' + (e * 7).toFixed(2) + 'deg)';
+    } else if (p.v === 4) { /* pair opens from a small window */
+      p.pair.style.transform = 'scale(' + (1 - e * .3).toFixed(4) + ')';
+      p.pair.style.clipPath = 'inset(' + (e * 16).toFixed(2) + '% ' + (e * 10).toFixed(2) + '%)';
+    }
+  }
+}
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+addEventListener('resize', onScroll); onScroll();
+
+/* ---------- cursor ---------- */
+(function () {
+  const c = $('#cur'); let x = -200, y = -200, tx = -200, ty = -200, s = 0, ts = 0;
+  addEventListener('pointerdown', () => { ts = 0; });
+  addEventListener('pointermove', e => {
+    tx = e.clientX; ty = e.clientY;
+    const t = e.target.closest && e.target.closest('.pair,.hero');
+    ts = t ? (t.classList.contains('hero') ? .5 : 1) : 0;
+    c.textContent = t && t.classList.contains('hero') ? '↔' : 'Open';
+  });
+  (function loop() { x += (tx - x) * .18; y += (ty - y) * .18; s += (ts - s) * .16; c.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + s.toFixed(3) + ')'; requestAnimationFrame(loop); })();
+})();
+
+/* ---------- ACG blocks in the footer hop when touched ---------- */
+document.querySelectorAll('.acg .p').forEach((p, i) => {
+  const svg = p.querySelector('svg'); let busy = false, turn = 0;
+  p.addEventListener('pointerenter', () => {
+    if (busy || reduce || !p.animate) return; busy = true; turn += i === 0 ? 0 : (Math.random() < .5 ? -1 : 1) * (i === 1 ? 200 : 90);
+    p.animate([{ transform: 'translateY(0)', easing: 'cubic-bezier(0,.5,.5,1)' }, { transform: 'translateY(-40px)', offset: .4, easing: 'cubic-bezier(.5,0,1,.6)' }, { transform: 'translateY(0)', offset: .8 }, { transform: 'translateY(-5px)', offset: .9 }, { transform: 'translateY(0)' }], { duration: 780 }).onfinish = () => { busy = false; };
+    svg.animate([{ transform: 'rotate(' + turn + 'deg)' }], { duration: 680, easing: 'cubic-bezier(.2,.6,.3,1)', fill: 'forwards' });
+  });
+});
+
+/* ---------- overlays ---------- */
+let lockN = 0;
+function showOv(el) { el.hidden = false; el.scrollTop = 0; requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('open'))); if (!lockN++) document.body.style.overflow = 'hidden'; }
+function hideOv(el) { if (el.hidden) return; el.classList.remove('open'); if (!--lockN) document.body.style.overflow = ''; setTimeout(() => { if (!el.classList.contains('open')) el.hidden = true; }, 950); }
+document.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => hideOv(b.closest('.ov'))));
+
+/* ---------- histogram ---------- */
+function drawHist(cv, h) {
+  const dpr = Math.min(2, devicePixelRatio || 1), w = cv.clientWidth, ht = cv.clientHeight;
+  if (!w) return;
+  cv.width = w * dpr; cv.height = ht * dpr;
+  const g = cv.getContext('2d'); g.scale(dpr, dpr);
+  const cs = getComputedStyle(document.documentElement), col = n => cs.getPropertyValue(n).trim();
+  g.strokeStyle = col('--line'); g.lineWidth = 1;
+  for (let i = 1; i < 4; i++) { const x = Math.round(w * i / 4) + .5; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, ht); g.stroke(); }
+  const pts = s => [...s].map((ch, i) => [i / 63 * w, ht - (ch.charCodeAt(0) - 48) / 42 * (ht - 3)]);
+  const path = p => { g.beginPath(); g.moveTo(0, ht); p.forEach(q => g.lineTo(q[0], q[1])); g.lineTo(w, ht); g.closePath(); };
+  g.globalCompositeOperation = col('--hb') || 'screen';
+  [['--cr', h[0]], ['--cg', h[1]], ['--cb', h[2]]].forEach(([c, s]) => { g.fillStyle = col(c); g.globalAlpha = .8; path(pts(s)); g.fill(); });
+  g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1;
+  g.strokeStyle = col('--fg'); g.lineWidth = 1.2; g.beginPath();
+  pts(h[3]).forEach((q, i) => i ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])); g.stroke();
+}
+
+/* ---------- detail ---------- */
+const detail = $('#detail'), dBody = $('#dBody'); let di = 0;
+
+/* notes: one short text per edit, kept in the page's shared store so both of you can write them here */
+let NOTES = window.BAKED_NOTES || {}, db = null, canWrite = false, editing = null;
+const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+function paintNotes() {
+  dBody.querySelectorAll('.note').forEach(el => {
+    const key = el.dataset.note; if (editing === key) return;
+    const t = NOTES[key] || ''; el.textContent = '';
+    el.hidden = !t && !canWrite; if (el.hidden) return;
+    el.append(mk('div', 'mono dim', el.dataset.label + "'s note"));
+    el.append(mk('p', t ? '' : 'dim', t || (canWrite ? 'No note yet. A few lines on the idea behind this edit go here.' : 'No note yet.')));
+    if (canWrite) { const b = mk('button', 'mono', t ? 'Edit note' : 'Write note'); b.type = 'button'; b.onclick = () => editNote(el, key, t); el.append(b); }
+  });
+}
+function editNote(el, key, t) {
+  editing = key; el.textContent = '';
+  const lab = mk('label', 'mono dim', el.dataset.label + "'s note"); lab.htmlFor = 'note-' + key;
+  const ta = mk('textarea'); ta.id = 'note-' + key; ta.maxLength = 600; ta.rows = 5; ta.value = t; ta.placeholder = 'What was the idea, the reason, the inspiration?';
+  const acts = mk('div', 'acts'), save = mk('button', 'mono', 'Save note'), cancel = mk('button', 'mono', 'Cancel'), msg = mk('span', 'mono dim');
+  save.type = cancel.type = 'button'; acts.append(save, cancel, msg); el.append(lab, ta, acts); ta.focus();
+  cancel.onclick = () => { editing = null; paintNotes(); };
+  save.onclick = async () => {
+    const v = ta.value.trim(); save.disabled = true; msg.textContent = 'Saving…';
+    try { await db.doc('notes/' + key).set({ text: v }); NOTES[key] = v; editing = null; paintNotes(); }
+    catch (e) { save.disabled = false; msg.textContent = 'Not saved. You may not have edit access to this page.'; }
+  };
+}
+(async () => {
+  try {
+    if (!window.claude || !claude.use) return;
+    db = await claude.use('db'); if (!db) return;
+    const user = await claude.use('user');
+    canWrite = !user || (await user.can('data.write')) !== false;
+    paintNotes();
+    db.collection('notes').onSnapshot(s => {
+      const n = {}; s.docs.forEach(d => { const x = d.data(); if (x && typeof x.text === 'string' && x.text) n[d.id] = x.text.slice(0, 600); });
+      NOTES = n; paintNotes();
+    }, () => {});
+  } catch (e) {}
+})();
+function fig(f, w, label, soft, h) {
+  return `<figure>
+    <div class="im"><img data-fast="${w}" style="aspect-ratio:${f.o === 'p' ? '2/3' : '3/2'}" alt="${f.t}, ${label}'s edit"></div>
+    <div class="cap mono"><span>Edit — ${label}</span><span class="dim">${soft}</span></div>
+    <div class="note" data-note="${f.n}-${w}" data-label="${label}"></div>
+    <div class="hist" aria-label="Histogram of ${label}'s edit: red, green, blue and luminance"><canvas data-h="${w}"></canvas><div class="ax mono dim"><span>Shadows</span><span>Midtones</span><span>Highlights</span></div></div>
+  </figure>`;
+}
+let orig = false;
+const HK = (f, k) => k === 'adhit' ? f.hA : k === 'allison' ? f.hL : f.hO;
+function figO(f) {
+  return `<figure class="orig">
+    <div class="im"><img data-fast="original" style="aspect-ratio:${f.o === 'p' ? '2/3' : '3/2'}" alt="${f.t}, the original photograph before editing"></div>
+    <div class="cap mono"><span>Original — as shot</span><span class="dim">${f.mk} ${f.md.split(' ')[0]}</span></div>
+    <div class="hist" aria-label="Histogram of the original: red, green, blue and luminance"><canvas data-h="original"></canvas><div class="ax mono dim"><span>Shadows</span><span>Midtones</span><span>Highlights</span></div></div>
+  </figure>`;
+}
+function renderDetail(i) {
+  di = (i + F.length) % F.length; const f = F[di];
+  $('#dPos').textContent = f.n + ' / 30';
+  dBody.innerHTML = `
+  <div class="dt-side">
+    <span class="num">${f.n}</span>
+    <h2>${f.t}</h2>
+    <div class="expo mono">
+      <div><span class="dim">Aperture</span><b>f/${f.fn}</b></div>
+      <div><span class="dim">Shutter</span><b>${shutter(f.ss)}</b></div>
+      <div><span class="dim">ISO</span><b>${f.iso}</b></div>
+    </div>
+    <dl class="exif mono">
+      <dt>Photographer</dt><dd>${who(f)}</dd>
+      <dt>Make</dt><dd>${f.mk}</dd>
+      <dt>Model</dt><dd>${f.md}</dd>
+      <dt>Lens</dt><dd>${f.lens}</dd>
+      <dt>Focal length</dt><dd>${f.fl} mm</dd>
+      <dt>Captured</dt><dd>${f.dt}</dd>
+    </dl>
+  </div>
+  <div class="dt-figs ${f.o}">${orig && f.hO ? figO(f) : ''}${fig(f, 'allison', 'Allison', 'Lightroom', f.hL)}${fig(f, 'adhit', 'Adhit', 'Capture One', f.hA)}</div>`;
+  dBody.querySelectorAll('img[data-fast]').forEach(im => fast(im, f, im.dataset.fast));
+  editing = null; paintNotes(); warmOrig(f); warmOrig(F[nextOk(di, 1)]); warmOrig(F[nextOk(di, -1)]);
+  [-1, 1].forEach(o => { const g = F[(di + o + F.length) % F.length]; ['adhit', 'allison'].forEach(w => pre(sm(g, w)).then(() => pre(src(g, w)))); });
+  requestAnimationFrame(() => dBody.querySelectorAll('canvas').forEach(c => drawHist(c, HK(f, c.dataset.h))));
+}
+/* photographer filter: 'all', 'allison' or 'adhit' */
+let filt = 'all';
+const inF = i => filt === 'all' || F[i].w === filt;
+const nextOk = (i, d) => { let n = i; for (let k = 0; k < F.length; k++) { n = (n + d + F.length) % F.length; if (inF(n)) break; } return n; };
+/* light or dark: the system decides until the switch is used */
+(function () {
+  const root = document.documentElement, sw = $('#thm'), mq = matchMedia('(prefers-color-scheme: light)');
+  /* a choice made with the switch holds only while the system setting stays as it was when the choice was made */
+  const sys = () => mq.matches ? 'light' : 'dark', clear = () => { delete root.dataset.theme; try { localStorage.removeItem('theme2'); localStorage.removeItem('theme'); } catch (e) {} };
+  try { localStorage.removeItem('theme'); const m = (localStorage.getItem('theme2') || '').split('|'); if ((m[0] === 'light' || m[0] === 'dark') && m[1] === sys() && m[0] !== sys()) root.dataset.theme = m[0]; else localStorage.removeItem('theme2'); } catch (e) {}
+  const now = () => root.dataset.theme || (mq.matches ? 'light' : 'dark');
+  const paint = () => { const t = now(); sw.textContent = t === 'light' ? 'Dark' : 'Light'; sw.setAttribute('aria-label', 'Switch to the ' + (t === 'light' ? 'dark' : 'light') + ' theme'); const m = document.querySelector('meta[name=theme-color]'); if (m) m.content = t === 'light' ? '#f3f1eb' : '#050505'; if (typeof F !== 'undefined' && typeof di !== 'undefined') document.querySelectorAll('canvas[data-h]').forEach(c => drawHist(c, HK(F[di], c.dataset.h))); };
+  sw.onclick = () => { const t = now() === 'light' ? 'dark' : 'light'; if (t === sys()) clear(); else { root.dataset.theme = t; try { localStorage.setItem('theme2', t + '|' + sys()); } catch (e) {} } paint(); };
+  mq.addEventListener && mq.addEventListener('change', () => { clear(); paint(); }); paint();
+})();
+function setOrig(v) {
+  orig = v; const b = $('#dOrig'); b.setAttribute('aria-pressed', v); b.classList.toggle('on', v); b.textContent = v ? 'Hide original' : 'Show original';
+  if (detail.hidden) return;
+  const f = F[di], box = dBody.querySelector('.dt-figs'), old = box.querySelector('figure.orig'); if (old) old.remove();
+  if (v && f.hO) { box.insertAdjacentHTML('afterbegin', figO(f)); const fg = box.firstElementChild; fg.classList.add('orig'); const im = fg.querySelector('img'); im.dataset.want = src(f, 'original'); im.src = warmed.has(src(f, 'original')) ? src(f, 'original') : sm(f, 'original'); if (!warmed.has(src(f, 'original'))) fast(im, f, 'original'); const c = fg.querySelector('canvas'); requestAnimationFrame(() => drawHist(c, f.hO)); }
+}
+const warmed = new Set();
+function warmOrig(f) { if (!f.hO) return; pre(sm(f, 'original')); const u = src(f, 'original'); pre(u).then(() => warmed.add(u)); }
+$('#dOrig').onclick = () => setOrig(!orig);
+function openDetail(i) { renderDetail(i); showOv(detail); }
+/* the neighbours' originals are fetched ahead as well, so stepping stays quick */
+function stepDetail(d) { renderDetail(nextOk(di, d)); detail.scrollTop = 0; dBody.classList.remove('swap'); void dBody.offsetWidth; dBody.classList.add('swap'); }
+document.addEventListener('click', e => { const b = e.target.closest('[data-open]'); if (b) openDetail(+b.dataset.open); });
+$('#dPrev').onclick = () => stepDetail(-1); $('#dNext').onclick = () => stepDetail(1);
+addEventListener('resize', () => { if (!detail.hidden) dBody.querySelectorAll('canvas').forEach(c => drawHist(c, HK(F[di], c.dataset.h))); });
+
+/* ---------- index ---------- */
+const index = $('#index');
+$('#ixGrid').innerHTML = F.map((f, i) => `<button type="button" class="${f.o}" data-jump="${i}" aria-label="Go to frame ${f.n}, ${f.t}"><img loading="lazy" src="${sm(f, 'allison')}" alt=""><img loading="lazy" src="${sm(f, 'adhit')}" alt=""><span class="mono">${f.n}</span></button>`).join('');
+$('#openIx').onclick = () => showOv(index);
+function setFilter(w, jump) {
+  filt = w;
+  document.querySelectorAll('.byw button').forEach(b => { const on = b.dataset.w === w; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+  frs.forEach((el, i) => { el.hidden = !inF(i); });
+  document.querySelectorAll('#ixGrid [data-jump]').forEach(b => { b.hidden = !inF(+b.dataset.jump); });
+  onScroll();
+  if (jump) $('#frames').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+}
+document.querySelectorAll('.byw button').forEach(b => b.addEventListener('click', () => setFilter(b.dataset.w, !b.closest('.ov'))));
+$('#ixGrid').addEventListener('click', e => { const b = e.target.closest('[data-jump]'); if (!b) return; hideOv(index); frs[+b.dataset.jump].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); });
+
+/* ---------- fullscreen compare ---------- */
+const cmp = $('#cmp'), cst = $('#cst'), knob = $('#knob'); let ci = 0, cx = 50, uiT = 0;
+function setX(v) { cx = Math.max(0, Math.min(100, v)); cst.style.setProperty('--x', cx + '%'); knob.setAttribute('aria-valuenow', Math.round(cx)); }
+function fit() { const r = F[ci].o === 'p' ? 2 / 3 : 3 / 2, W = innerWidth, H = innerHeight; let w = W, h = w / r; if (h > H) { h = H; w = h * r; } cst.style.width = w + 'px'; cst.style.height = h + 'px'; }
+function wake() { cmp.classList.add('ui'); clearTimeout(uiT); uiT = setTimeout(() => cmp.classList.remove('ui'), 2200); }
+function loadCmp(i) {
+  ci = (i + F.length) % F.length; const f = F[ci];
+  sharp($('#cA'), f, 'allison'); sharp($('#cB'), f, 'adhit'); if (f.hO) { const o = $('#cO'), big = src(f, 'original'), key = f.n + 'original'; o.dataset.want = key; o.src = warmed.has(big) ? big : sm(f, 'original'); pre(big).then(() => { warmed.add(big); if (o.dataset.want === key && !/\/xl\//.test(o.src)) o.src = big; }); best(f, 'original').then(u => { if (o.dataset.want === key) o.src = u; }); }
+  $('#cPos').textContent = f.n + ' / 30 — ' + f.t; fit();
+  cmp.classList.remove('sweep'); setX(100); void cst.offsetWidth;
+  cmp.classList.add('sweep'); setX(50); setTimeout(() => cmp.classList.remove('sweep'), 1350); wake();
+}
+function openCmp(i) {
+  cmp.hidden = false; requestAnimationFrame(() => cmp.classList.add('open')); loadCmp(i);
+  try { const p = cmp.requestFullscreen && cmp.requestFullscreen(); if (p && p.catch) p.catch(() => {}); } catch (e) {}
+  knob.focus({ preventScroll: true });
+}
+function closeCmp() {
+  if (cmp.hidden) return; cmp.classList.remove('open');
+  if (document.fullscreenElement) { try { document.exitFullscreen().catch(() => {}); } catch (e) {} }
+  setTimeout(() => { if (!cmp.classList.contains('open')) cmp.hidden = true; }, 520);
+  if (!detail.hidden && ci !== di) renderDetail(ci);
+}
+$('#dCmp').onclick = () => openCmp(di);
+$('#cClose').onclick = closeCmp; $('#cPrev').onclick = () => loadCmp(nextOk(ci, -1)); $('#cNext').onclick = () => loadCmp(nextOk(ci, 1));
+function cmpOrig(v) { cmp.classList.toggle('orig', v); $('#cOrig').setAttribute('aria-pressed', v); wake(); }
+$('#cOrig').onclick = e => { e.stopPropagation(); cmpOrig(!cmp.classList.contains('orig')); };
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && cmp.classList.contains('open')) closeCmp(); else fit(); });
+let drag = false;
+const fromEv = e => { const r = cst.getBoundingClientRect(); setX((e.clientX - r.left) / r.width * 100); };
+cst.addEventListener('pointerdown', e => { if (cmp.classList.contains('orig')) return; drag = true; cmp.classList.remove('sweep'); try { cst.setPointerCapture(e.pointerId); } catch (x) {} fromEv(e); });
+cst.addEventListener('pointermove', e => { if (drag) fromEv(e); });
+['pointerup', 'pointercancel'].forEach(t => cst.addEventListener(t, () => drag = false));
+cmp.addEventListener('pointermove', wake); cmp.addEventListener('pointerdown', wake);
+addEventListener('resize', () => { if (!cmp.hidden) fit(); });
+addEventListener('keydown', e => {
+  if (e.target.matches && e.target.matches('textarea,input')) return;
+  if (!cmp.hidden && cmp.classList.contains('open')) {
+    wake();
+    if (e.key === 'Escape') closeCmp();
+    else if (e.key === 'o' || e.key === 'O') cmpOrig(!cmp.classList.contains('orig'));
+    else if (document.activeElement === knob && (e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !e.shiftKey) { setX(cx + (e.key === 'ArrowLeft' ? -4 : 4)); e.preventDefault(); }
+    else if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.shiftKey && e.key === 'ArrowLeft')) loadCmp(nextOk(ci, -1));
+    else if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.shiftKey && e.key === 'ArrowRight')) loadCmp(nextOk(ci, 1));
+    return;
+  }
+  if (!index.hidden && e.key === 'Escape') return hideOv(index);
+  if (!detail.hidden && detail.classList.contains('open')) {
+    if (e.key === 'Escape') hideOv(detail);
+    else if (e.key === 'ArrowLeft') stepDetail(-1);
+    else if (e.key === 'ArrowRight') stepDetail(1);
+    else if (e.key === 'f' || e.key === 'F') openCmp(di);
+    else if (e.key === 'o' || e.key === 'O') setOrig(!orig);
+  }
+});
+</script>
+
+</body>
+</html>

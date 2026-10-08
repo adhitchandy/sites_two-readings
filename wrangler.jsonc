@@ -1,0 +1,9 @@
+{
+  // Publishes the folder site/ as the static site "two-readings" (run `npx wrangler deploy` in this folder).
+  "name": "two-readings",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./site" },
+  "routes": [
+    { "pattern": "two-readings.adhitchandy.com", "custom_domain": true }
+  ]
+}

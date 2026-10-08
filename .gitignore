@@ -1,0 +1,7 @@
+# The full-size edits and the raw files, kept in Google Drive instead (see photos/README.txt).
+photos/
+# Made by tools; rebuilt on any computer.
+.wrangler/
+node_modules/
+tools/pairs/
+.DS_Store
