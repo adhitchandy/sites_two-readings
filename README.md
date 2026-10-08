@@ -16,7 +16,9 @@ publishes `site/` to two-readings.adhitchandy.com (the setting is in `wrangler.j
 
 ## Saving a change to GitHub
 
-    ~/Personal/sites/push.sh "what changed"
+    git add -A
+    git commit -m "what changed"
+    git push
 
 ## On a new computer
 
