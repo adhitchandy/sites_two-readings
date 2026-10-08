@@ -1,6 +1,6 @@
 # Two Readings
 
-Thirty photographs, fifteen each by Allison and Adhit, every one edited by both. Published at https://two-readings.adhitchandy.com.
+Thirty photographs, fifteen each by Allison and Adhit, every one edited by both. Published at https://two-readings.acg.pictures (the old address, two-readings.adhitchandy.com, forwards there through the redirects Worker in `../redirects`).
 
 ## What is where
 
@@ -12,7 +12,7 @@ Thirty photographs, fifteen each by Allison and Adhit, every one edited by both.
 
     npx wrangler deploy
 
-publishes `site/` to two-readings.adhitchandy.com (the setting is in `wrangler.jsonc`).
+publishes `site/` to two-readings.acg.pictures (the setting is in `wrangler.jsonc`).
 
 ## Saving a change to GitHub
 
