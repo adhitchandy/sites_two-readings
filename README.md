@@ -4,7 +4,7 @@ Thirty photographs, fifteen each by Allison and Adhit, every one edited by both.
 
 ## What is where
 
-- `site/` is the whole website as it is published: `index.html`, `og.jpg`, the icons, and `img/` (each picture three ways: `NN-original`, `NN-adhit`, `NN-allison`; `img/s/` small WebP copies, `img/xl/` large ones). There is no build step: change `site/index.html` and publish.
+- `site/` is the whole website as it is published: `index.html`, `og.jpg`, the icons, and `img/` (each picture three ways: `NN-original`, `NN-adhit`, `NN-allison`; `img/s/` small WebP copies, `img/xl/` large ones). There is no build step: change `site/index.html` and publish. What each frame shows, and how each edit reads it, is in `ALT` at the top of the script in `site/index.html`: screen readers read it out in the opened frame and the fullscreen comparison, so a new frame needs a line there.
 - `photos/` holds the full-size edits and the raw files (see `photos/README.txt`). It is left out of git and kept in Google Drive.
 - `tools/` holds the scripts that made `site/img` from `photos/`. Run them from this folder: `python3 tools/rebuild.py 0 30` remakes the two edits of all thirty pairs, `python3 tools/originals.py 0 30` remakes the unedited versions from the raw files (needs `pip install pillow rawpy`). `meta.py` read details from an older working folder (`tools/pairs/`) that is not kept; its result is `meta.json`.
 
