@@ -172,6 +172,24 @@ footer .sig a:hover{text-decoration:underline;text-underline-offset:4px}
 .bar a{color:inherit;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 
 
+/* about this project: the quote first, large, then the story in short parts, each with its label at the left edge */
+.about{padding:clamp(90px,14vw,210px) var(--gut) clamp(70px,10vw,150px);border-top:1px solid var(--line);display:grid;gap:clamp(56px,9vw,130px);scroll-margin-top:0}
+.about .lab{margin:0 0 clamp(28px,4vw,56px)}
+.about blockquote{margin:0}
+.about blockquote p{margin:0;max-width:20ch;font-weight:500;font-size:clamp(32px,5.4vw,92px);line-height:1;letter-spacing:-.035em;text-wrap:balance}
+@media(min-width:700px){.about blockquote p{text-indent:-.38em}}
+@media(max-width:380px){.bar .right{gap:12px}}
+.about blockquote p.cite{text-indent:0;font-size:12px;letter-spacing:.09em;font-weight:400;line-height:1.4;margin-top:clamp(20px,2.4vw,34px)}
+.about h2.mono{font-weight:400}
+.ab-parts{display:grid;border-bottom:1px solid var(--line)}
+.ab-part{display:grid;gap:14px 40px;padding-block:clamp(26px,3.4vw,44px);border-top:1px solid var(--line)}
+.ab-part h2{margin:0;padding-top:.35em}
+.ab-part p{margin:0;max-width:62ch;font-size:clamp(17px,1.35vw,20px);line-height:1.55;letter-spacing:-.003em;text-wrap:pretty}
+.ab-part p+p{margin-top:1em}
+@media(min-width:900px){.ab-part{grid-template-columns:minmax(200px,1fr) minmax(0,2.2fr)}}
+.about .last{margin:0;max-width:22ch;font-weight:500;font-size:clamp(28px,3.8vw,64px);line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+.about .by{margin:clamp(18px,2vw,28px) 0 0}
+
 /* cursor */
 #cur{position:fixed;left:0;top:0;z-index:90;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--fg);color:var(--bg);display:none;align-items:center;justify-content:center;pointer-events:none;transform:translate(-200px,-200px) scale(0);}
 @media(hover:hover) and (pointer:fine){#cur{display:flex}.pair,.hero{cursor:none}}
@@ -271,7 +289,7 @@ dl.exif dd{text-align:right;text-transform:none;letter-spacing:.02em;font-size:1
 <div id="prog"></div>
 <header class="bar onhero">
   <span class="brand">Allison × Adhit</span>
-  <span class="right"><a href="https://adhitchandy.com">ACG ↗</a><button id="thm" type="button" aria-label="Switch between light and dark">Light</button><button id="openIx" type="button">Index</button></span>
+  <span class="right"><a href="https://adhitchandy.com">ACG ↗</a><button id="thm" type="button" aria-label="Switch between light and dark">Light</button><a href="#about">About</a><button id="openIx" type="button">Index</button></span>
 </header>
 
 <main>
@@ -291,6 +309,51 @@ dl.exif dd{text-align:right;text-transform:none;letter-spacing:.02em;font-size:1
   <div class="mq" aria-hidden="true"><div id="mq"></div></div>
 
   <section class="frames" id="frames"></section>
+
+  <section class="about" id="about" aria-labelledby="aboutH">
+    <div>
+      <h2 class="lab mono dim" id="aboutH">About this project</h2>
+      <blockquote>
+        <p>“The negative is comparable to the composer’s score and the print to its performance.”</p>
+        <p class="cite mono dim">— Ansel Adams</p>
+      </blockquote>
+    </div>
+    <div class="ab-parts">
+      <div class="ab-part">
+        <h2 class="mono dim">How it started</h2>
+        <div>
+          <p>It began with a passing conversation. Allison told me about her 365 project: one photograph every day for a whole year, her way of getting to know photography, and her own camera, a little better.</p>
+          <p>For me, editing has always been part of making a photograph. I rarely share a picture without some kind of edit, even a minimal one. So I suggested we trade files: share some of our photographs, each edit all of them, and see how differently the two of us read colour, mood and tone.</p>
+        </div>
+      </div>
+      <div class="ab-part">
+        <h2 class="mono dim">Thirty frames, seven months</h2>
+        <div>
+          <p>We chose exactly thirty images, fifteen each, with a simple plan: one edit a day for one month. I wasn’t consistent enough. The month stretched into seven, and somewhere along the way we both set it aside.</p>
+          <p>Recently I found the time to come back to it and asked Allison whether she wanted to pick it up again. She said yes, and we finished what we had started.</p>
+        </div>
+      </div>
+      <div class="ab-part">
+        <h2 class="mono dim">Two readings</h2>
+        <div>
+          <p>Laying the edits side by side, I was struck by how boldly Allison worked, with strong colours and confident tones. Many of mine went the other way, toward muted colour and a flatter look. Same file, two quite different ideas of what it could become.</p>
+          <p>What Allison enjoyed most was the experimenting. This was her first time spending an extended stretch in Adobe Lightroom, editing pictures with intent. Experimenting and editing with intent can seem to pull in opposite directions, yet trying things is how she found that some colour treatments lifted an image while the same treatment did nothing for another. Knowing which is which is its own kind of learning.</p>
+          <p>My own style stayed fairly neutral throughout, and that is a choice: for now I would rather work that way than reach for high saturation or contrast. Where I did push, it was toward split tones, warm areas and cool areas in the same frame, to bring a little more colour dynamics into some of the images.</p>
+        </div>
+      </div>
+      <div class="ab-part">
+        <h2 class="mono dim">What I’m taking with me</h2>
+        <div>
+          <p>It was a real learning experience for both of us. If the raw file is the score, these are two performances of each one, and hearing the same thirty pieces played two ways showed me how much of a picture is decided after the shutter closes.</p>
+          <p>My takeaway is to be more experimental when I edit. Too often I picture a result and work only toward it. Next time I want to leave room for what I didn’t plan.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="last">Maybe I’ll find something better when I dare to try.</p>
+      <p class="by mono dim">Adhit</p>
+    </div>
+  </section>
 
   <footer>
     <p class="big">Allison ×<br>Adhit</p>
